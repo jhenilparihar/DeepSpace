@@ -1,0 +1,139 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(38, 38, 38);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "DM Sans", system-ui, sans-serif;
+  color: #263238;
+} */
+
+.card {
+  width: 22rem;
+  max-width: 90%;
+  border: solid 4px rgb(48, 51, 57);
+  border-radius: 2rem;
+  padding: 0.75rem;
+  text-decoration: none;
+  color: white;
+  background: #404446;
+  transition: all 400ms ease;
+}
+.card:hover {
+  background: rgb(48, 51, 57);
+  color: white;
+}
+.card__body {
+  background: rgb(48, 51, 57);
+  border-radius: 1.25rem;
+  padding: 0.75rem;
+}
+.card__top {
+  display: flex;
+  font-weight: 500;
+}
+.card__owner, .card__creator {
+  width: 50%;
+  display: flex;
+}
+.card__owner {
+  position: relative;
+}
+.card__owner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -1px;
+  width: 2px;
+  height: 100%;
+  border-radius: 2px;
+  background: #404446;
+}
+.card__creator {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+.card__avatar {
+    height: 45px;
+  /* margin-top: -6px; */
+  object-fit: cover;
+  border: 2px solid rgb(21, 27, 34);
+  border-radius: 1.5rem;
+  height: 3rem;
+  width: 3rem;
+  justify-content: center;
+  overflow: hidden;
+}
+.card__user {
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.card__user__title {
+  font-size: 0.75rem;
+  color: #a8acad;
+}
+.card__image {
+  padding-top: 75%;
+  position: relative;
+  overflow: hidden;
+  margin-top: 0.75rem;
+  border-radius: 1rem;
+  background: #ECEFF1;
+  box-shadow: 0 16px 32px #1e1e1e;
+}
+.card__image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card__info {
+  margin: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+}
+.card__info p {
+  margin: 0;
+}
+.card__footer {
+  background: rgb(48, 51, 57);
+  padding: 0.75rem;
+  border-radius: 0.75rem 0.75rem 1.75rem 1.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card__btn {
+  width: 48%;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 500;
+  transition: all 200ms ease;
+}
+.card__btn--primary {
+  background: #525252;
+  color: #ECEFF1;
+  border-radius: 0.5rem 0.5rem 1.25rem 0.5rem;
+}
+.card__btn--primary:hover {
+  background: #898989;
+}
+.card__btn--secondary {
+  border-radius: 0.5rem 0.5rem 0.5rem 1.25rem;
+}
+.card__btn--secondary:hover {
+  color: rgb(32, 129, 226);
+}
