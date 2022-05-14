@@ -3,11 +3,7 @@ const Profile = () => {
     return (
       <div class="main">
      <div class="upper" >
-     <input type="file"  /></div>
-        
-        
-  
-       
+     <input type="file"  /></div>      
         <div class="details">
         <div class="prof-img">
         <input type="file"  />

@@ -1,0 +1,143 @@
+  .upper{
+    background-color:  rgb(24,27,34);
+    height: 250px;
+    position: relative;
+  }
+  
+  .upper:hover{
+    background-color:  black;
+    cursor: pointer;
+  }
+  .address{
+    border: 2px solid black;
+    height: 50px;
+    width: 180px;
+    border-radius: 30px;
+    position: relative;
+    left: 44%;
+    color: gray;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .address:hover{
+    background-color: rgba(255,255,255,0.3);
+    color: white;
+  }
+  
+  .prof-img{
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+  background-image: linear-gradient(to right top, #caeef6, #86fbf6, #4fffd1, #6cff8b, #b1ff02);
+  position: relative;
+  top: -80px;
+  left: 44.5%;
+  align-items: center;
+  }
+  .prof-img:hover{
+    background-image:none;
+    background-color: black;
+  }
+  .user-details{
+    position: relative;
+    top: -70px;
+    align-items: center;
+    text-align: center;
+  }
+  .details .user-details p{
+    color: rgb(138, 147, 155);
+  }
+  .details .user-details p:hover{
+    color: white;
+    
+  }
+  .details .user-details h1{
+    color: white;
+  }
+  
+  .icon{
+    height: 50px;
+    width: 130px;
+    border: 1px solid white;
+    border-radius: 10px;
+    /* background-color: white; */
+    position: absolute;
+    right: 20px;
+    top:350px;
+    color: white;
+  }
+  .icon .h{
+    position: relative;
+    top: 25%;
+    right: 25%;
+    
+  }
+  a{
+    text-decoration: none;
+    color: white;
+  }
+  .icon .G{
+    position: relative;
+    top: 25%;
+    right: -20%;
+  }
+  .icon::before{
+    content: " ";
+    height: 2em;
+    width: 0.1;
+    padding: 13px 0;
+    border: 1px solid white;
+    /* border-radius: 10px; */
+    background-color: white;
+    position: relative;
+    bottom: -15px;
+    right: -8px;
+  }
+
+  .option{
+    display: inline-block;
+  }
+  .option a {
+    /* background: #212121; */
+    color: grey;
+    text-decoration: none;
+    text-transform: capitalize;
+    padding: 12px 40px;
+    position: relative;
+  }
+  /*add the border and transform it trough scaleX(0)*/
+  .option a::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 4px;
+    bottom: 0px;
+    /* left: 25%; */
+    background-color: #3AA3F7;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  /*show the hidden border on hover*/
+  .option a:hover::before {
+    transform: scaleX(1);
+  }
+  .option a:hover{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: rgba(255,255,255,0.3);
+    color: white;
+  }
+  .menu {
+    align-items: center;
+    /* background: #212121; */
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    height: 50px;
+    width: 700px;
+  }
