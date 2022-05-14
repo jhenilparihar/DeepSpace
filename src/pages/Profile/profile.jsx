@@ -5,6 +5,7 @@ const Profile = () => {
      <div class="upper" >
      <input type="file"  /></div>      
         <div class="details">
+        <div class="details-inner">
         <div class="prof-img">
         <input type="file"  />
         </div>
@@ -13,14 +14,19 @@ const Profile = () => {
           <div class="address">cddd..ddd</div>
           <p>Joined May 2022</p>
         </div>
+        
+        </div>
         <div class="icon">
+        <div class="share">
         <a  class="h">H</a>
-      
-         
-         <a href='#' class="G">G</a>
+        </div> 
+        <div class="settings">
+        <a href='#' class="G">G</a>
+        </div> 
+       
         </div>
-        </div>
-      
+        
+        </div>  
         <div class="option">
         <ul class="menu">
         <li><a href="#">Minted Tokens</a></li>
