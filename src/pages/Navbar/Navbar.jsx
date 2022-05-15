@@ -1,5 +1,4 @@
 import { Outlet, Link } from "react-router-dom";
-import './assets/bootstrap/css/bootstrap.css';
 import './assets/main.css';
 import logo from './assets/opensea.svg';
 import avatar from './assets/avatar.png'
