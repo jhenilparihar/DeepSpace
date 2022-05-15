@@ -11,6 +11,7 @@ import NoPage from './pages/NoPage/NoPage';
 import Settings from './pages/Profile/profile-setting';
 import NFTDetails from './pages/NFT-Details/NFT-Details';
 
+
 function App() {
   return (
     <BrowserRouter>
