@@ -169,11 +169,11 @@ filter_op.classList.toggle('filter-op1');
 <img class="buy-nft-image" src="https://lh3.googleusercontent.com/CwsYMcOvwHjH8Bmc_EnJBKivGFGKzK_6nonGabSOae3-rIdj7Vdbr5aUe8nvBq_TF9OTz34H_tiB2Wnmr8VBNl_MvZOOwOkaIlfmzZY=w361" alt="" />
        </div>
         <div class="row nft-details">
-          <div class="col nft-name">
+          <div class="col nft-name-explore">
 <p class="n">jhenil</p>
 <p>Parihar</p>
           </div>
-          <div class="col nft-price">
+          <div class="col nft-price-explore">
 <p class="n">Price</p>
 <p><img src={eth} alt="" class="ether-img" /> 1.3ETH</p>
           </div>
@@ -192,11 +192,11 @@ filter_op.classList.toggle('filter-op1');
  <img class="buy-nft-image" src="https://lh3.googleusercontent.com/oyehZHlqitevPHLwNr4Ufu0cFIYCvfuvYAbOWVxZy1FZAWesjfyAuiPP4PQnW-XhKk48buOBDa4-MrT2ONIjQMo-jFiNPJ-bPhZDOOo=w361" alt="" />
         </div>
          <div class="row nft-details">
-           <div class="col nft-name">
+           <div class="col nft-name-explore">
  <p class="n">jhenil</p>
  <p>Parihar</p>
            </div>
-           <div class="col nft-price">
+           <div class="col nft-price-explore">
  <p class="n">Price</p>
  <p><img src={eth} alt="" class="ether-img" /> 1.3ETH</p>
            </div>
@@ -215,11 +215,11 @@ filter_op.classList.toggle('filter-op1');
           <img class="buy-nft-image" src="https://lh3.googleusercontent.com/oyehZHlqitevPHLwNr4Ufu0cFIYCvfuvYAbOWVxZy1FZAWesjfyAuiPP4PQnW-XhKk48buOBDa4-MrT2ONIjQMo-jFiNPJ-bPhZDOOo=w361" alt="" />
         </div>
          <div class="row nft-details">
-           <div class="col nft-name">
+           <div class="col nft-name-explore">
  <p class="n">jhenil</p>
  <p>Parihar</p>
            </div>
-           <div class="col nft-price">
+           <div class="col nft-price-explore">
  <p class="n">Price</p>
  <p><img src={eth} alt="" class="ether-img" /> 1.3ETH</p>
            </div>
@@ -238,11 +238,11 @@ filter_op.classList.toggle('filter-op1');
           <img class="buy-nft-image" src="https://lh3.googleusercontent.com/oyehZHlqitevPHLwNr4Ufu0cFIYCvfuvYAbOWVxZy1FZAWesjfyAuiPP4PQnW-XhKk48buOBDa4-MrT2ONIjQMo-jFiNPJ-bPhZDOOo=w361" alt="" />
         </div>
          <div class="row nft-details">
-           <div class="col nft-name">
+           <div class="col nft-name-explore">
  <p class="n">jhenil</p>
  <p>Parihar</p>
            </div>
-           <div class="col nft-price">
+           <div class="col nft-price-explore">
  <p class="n">Price</p>
  <p><img src={eth} alt="" class="ether-img" /> 1.3ETH</p>
            </div>
@@ -261,11 +261,11 @@ filter_op.classList.toggle('filter-op1');
           <img class="buy-nft-image" src="https://lh3.googleusercontent.com/oyehZHlqitevPHLwNr4Ufu0cFIYCvfuvYAbOWVxZy1FZAWesjfyAuiPP4PQnW-XhKk48buOBDa4-MrT2ONIjQMo-jFiNPJ-bPhZDOOo=w361" alt="" />
         </div>
          <div class="row nft-details">
-           <div class="col nft-name">
+           <div class="col nft-name-explore">
  <p class="n">jhenil</p>
  <p>Parihar</p>
            </div>
-           <div class="col nft-price">
+           <div class="col nft-price-explore">
  <p class="n">Price</p>
  <p><img src={eth} alt="" class="ether-img" /> 1.3ETH</p>
            </div>
