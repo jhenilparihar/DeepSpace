@@ -12,7 +12,7 @@ const Mint = () => {
               <div class="banner-image">
                 <label for="b2" class="head">
                   {" "}
-                  Image, Video, Audio, or 3D Model <span>*</span>
+                  Image, Video, Audio, or 3D Model <span class="highlight">*</span>
                 </label>
                 <p class="sub-head">
                   File types supported: JPG, PNG, GIF, SVG, MP4, WEBM, MP3, WAV,
