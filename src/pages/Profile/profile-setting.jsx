@@ -7,7 +7,7 @@ const Settings = () => {
 
           
           <div class="form-u">
-        <form action="">
+        <form action="" class="form-profile-setting">
         <h1>Profile Setting</h1>
         <label for="text-1542372332072">Userame</label>
          
