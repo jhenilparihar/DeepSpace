@@ -163,14 +163,15 @@ h6 {
   overflow-x: hidden;
   transition: 0.5s;
   height: calc((100% - 0px) - 72px);
-  background: rgb(32, 34, 37);
-  border: 1px solid rgb(21, 27, 34);
+  background: rgba(32, 34, 37,0.8);
+  backdrop-filter: blur(24px);
+  border: 0.1px solid rgb(21, 27, 34);
   color: rgb(255, 255, 255);
 }
 
 .canvas-area-top {
   padding-bottom: 20px;
-  border-bottom: 1px solid rgb(21, 27, 34);
+  border-bottom: 1px solid white;
 }
 
 .main-text {
@@ -187,8 +188,8 @@ h6 {
 }
 
 .canvas-area {
-  border: 1px solid rgb(21, 27, 34);
-  border-radius: 10px 10px 0px 0px;
+  border: 1px solid white;
+  border-radius: 10px;
   margin-top: 20px;
 }
 .col-1 {
@@ -252,7 +253,7 @@ h6 {
 }
 .canvas-area2 {
   margin-top: 24px;
-  border: 1px solid rgb(21, 27, 34);
+  border: 1px solid white;
   border-radius: 10px;
   font-weight: 600;
   padding: 16px;

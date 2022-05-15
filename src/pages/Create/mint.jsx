@@ -7,7 +7,7 @@ const Mint = () => {
             <form action="">
               <h1>Create New Item</h1>
               <p class='sub-head'>
-                <span>* </span>Required fields{" "}
+                <span class="highlight">* </span >Required fields{" "}
               </p>
               <div class="banner-image">
                 <label for="b2" class="head">
@@ -24,7 +24,7 @@ const Mint = () => {
                 </div>
               </div>
               <label for="text-1542372332072" class="head">
-                Name <span>*</span>
+                Name <span class="highlight">*</span>
               </label>
               <div class="input-group">
                 <input

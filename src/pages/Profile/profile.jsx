@@ -1,4 +1,4 @@
-import './style.css';
+import './profile.css';
 const Profile = () => {
     return (
       <div class="main">

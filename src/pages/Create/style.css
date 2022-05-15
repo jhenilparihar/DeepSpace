@@ -21,7 +21,7 @@ form {
   font-size: 12px;
   color: rgb(138, 147, 155);
 }
-span {
+.highlight {
   color: red;
 }
 .head {

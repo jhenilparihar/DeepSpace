@@ -14,12 +14,12 @@ const Navbar = () => {
       if(a) {
         document.getElementById("account-details").style.width = "420px";
       document.getElementById("account-details").style.padding = "20px";
-        document.body.style.backgroundColor = "rgb(23 23 23)";
+        document.body.style.backgroundColor = "#202225";
       }
       else {
       document.getElementById("account-details").style.width = "0";
       document.getElementById("account-details").style.padding = "0";
-      document.body.style.backgroundColor = "rgb(32 34 37)";
+      document.body.style.backgroundColor = "#202225";
       }
   } 
 
