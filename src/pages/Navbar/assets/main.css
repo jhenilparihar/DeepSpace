@@ -171,7 +171,7 @@ h6 {
 
 .canvas-area-top {
   padding-bottom: 20px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid grey;
 }
 
 .main-text {
@@ -188,7 +188,7 @@ h6 {
 }
 
 .canvas-area {
-  border: 1px solid white;
+  border: 1px solid grey;
   border-radius: 10px;
   margin-top: 20px;
 }
@@ -253,7 +253,7 @@ h6 {
 }
 .canvas-area2 {
   margin-top: 24px;
-  border: 1px solid white;
+  border: 1px solid grey;
   border-radius: 10px;
   font-weight: 600;
   padding: 16px;
