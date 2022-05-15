@@ -62,6 +62,11 @@ body{
     font-size: 15px;
     padding: 5px;
   }
+  .nft-owner-name-explore{
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+  }
   .nft-details p{
   margin: 0 15px;
   font-weight: 600;
@@ -86,13 +91,14 @@ body{
     background-image: linear-gradient( to bottom, rgba(32, 34, 37, 1) 5px, rgba(32, 34, 37, 0) 15px );
   }
   .buy-details p{
+  color: rgb(32, 129, 226);
   font-size: 15px;
   font-weight: 600;
   margin: revert;
   }
   .det{
     position: relative;
-    right: -48px;
+    right: -60px;
   }
   .n{
     color: grey;
@@ -141,11 +147,12 @@ body{
   .explore-menu{
     list-style: none;
     padding: 0.2em 0.5em;
-    background: #323741;
+    background-color: rgba(53, 56, 64,0.8);
+    backdrop-filter: blur(15px);
     border: 1px #363a43;
     box-shadow: 0 0.5em 1em rgba(0,0,0,0.2);
     border-radius: 0.5em;
-    color: #9fa5b5;
+    color: white;
     position: absolute;
     /* top: 3em; */
     left: 50%;

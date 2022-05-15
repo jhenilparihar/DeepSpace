@@ -177,11 +177,12 @@ const Explore = () => {
                   />
                 </div>
                 <div class="row nft-details">
-                  <div class="col nft-name">
+                  <div class="col nft-name-explore">
                     <p class="n">jhenil</p>
-                    <p>Parihar</p>
+                    <p class="nft-owner-name-explore">Parihar</p>
+                    
                   </div>
-                  <div class="col nft-price">
+                  <div class="col nft-price-explore">
                     <p class="n">Price</p>
                     <p>
                       <img src={eth} alt="" class="ether-img" /> 1.3ETH
@@ -208,11 +209,12 @@ const Explore = () => {
                   />
                 </div>
                 <div class="row nft-details">
-                  <div class="col nft-name">
+                  <div class="col nft-name-explore">
                     <p class="n">jhenil</p>
-                    <p>Parihar</p>
+                    <p class="nft-owner-name-explore">Parihar</p>
+                    
                   </div>
-                  <div class="col nft-price">
+                  <div class="col nft-price-explore">
                     <p class="n">Price</p>
                     <p>
                       <img src={eth} alt="" class="ether-img" /> 1.3ETH
@@ -239,11 +241,12 @@ const Explore = () => {
                   />
                 </div>
                 <div class="row nft-details">
-                  <div class="col nft-name">
+                  <div class="col nft-name-explore">
                     <p class="n">jhenil</p>
-                    <p>Parihar</p>
+                    <p class="nft-owner-name-explore">Parihar</p>
+                    
                   </div>
-                  <div class="col nft-price">
+                  <div class="col nft-price-explore">
                     <p class="n">Price</p>
                     <p>
                       <img src={eth} alt="" class="ether-img" /> 1.3ETH
@@ -270,11 +273,12 @@ const Explore = () => {
                   />
                 </div>
                 <div class="row nft-details">
-                  <div class="col nft-name">
+                  <div class="col nft-name-explore">
                     <p class="n">jhenil</p>
-                    <p>Parihar</p>
+                    <p class="nft-owner-name-explore">Parihar</p>
+                    
                   </div>
-                  <div class="col nft-price">
+                  <div class="col nft-price-explore">
                     <p class="n">Price</p>
                     <p>
                       <img src={eth} alt="" class="ether-img" /> 1.3ETH
@@ -301,11 +305,12 @@ const Explore = () => {
                   />
                 </div>
                 <div class="row nft-details">
-                  <div class="col nft-name">
+                  <div class="col nft-name-explore">
                     <p class="n">jhenil</p>
-                    <p>Parihar</p>
+                    <p class="nft-owner-name-explore">Parihar</p>
+                    
                   </div>
-                  <div class="col nft-price">
+                  <div class="col nft-price-explore">
                     <p class="n">Price</p>
                     <p>
                       <img src={eth} alt="" class="ether-img" /> 1.3ETH
