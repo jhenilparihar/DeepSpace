@@ -1,4 +1,5 @@
 import "./profile-setting.css";
+import eye from "./eye.svg";
 
 const Settings = () => {
     return (
@@ -18,7 +19,7 @@ const Settings = () => {
          </div>
          <label for="bio">Bio</label>
          <div class="ta">
-         <textarea id="bio" name="bio" rows="8" cols="60">Share about you.</textarea>
+         <textarea id="bio" name="bio" rows="4" cols="60">Share about you.</textarea>
          </div>
          <label for="email">Email Address</label>
          <div class="input-group">
@@ -36,7 +37,7 @@ const Settings = () => {
   <label for="site"> YourSite.io</label>
          </div> 
          <div class="ppp" id='ppp'>
-         <button class="preview-btn">Preview</button> 
+         <button class="preview-btn"> <img src={eye} alt="" class="prev-btn-img" /> Preview</button> 
          <div class="profile-image">
          <label for="image"> ProfileImage</label>
          <div id='image'>

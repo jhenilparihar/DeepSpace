@@ -167,6 +167,7 @@ h6 {
   backdrop-filter: blur(24px);
   border: 0.1px solid rgb(21, 27, 34);
   color: rgb(255, 255, 255);
+  z-index: 100;
 }
 
 .canvas-area-top {
@@ -202,7 +203,7 @@ h6 {
   margin: 0;
 }
 
-.col-3 p {
+.canvas-area2 .col-3 p{
   font-weight: 400;
   font-size: 14px;
   color: rgb(138, 147, 155);
