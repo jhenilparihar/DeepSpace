@@ -26,7 +26,7 @@ const NFTDetails = () => {
                   <img src={share} height='25px' alt="" />
                 </div>
               </div>
-              <h1 className="nft-name">Pop It Punk #8266</h1>
+              <h1 className="nft_name">Pop It Punk #8266</h1>
               <div className="row owner_name">
                 <span>Owned by <a href="">SimpleDimplePopItSqui...</a></span>
               </div>
