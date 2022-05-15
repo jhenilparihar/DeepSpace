@@ -51,7 +51,7 @@ form {
   height: 257px;
   width: 350px;
 }
-input[type="file"] {
+.nft-image input[type="file"] {
   opacity: 0;
   position: absolute;
   top: 0;
