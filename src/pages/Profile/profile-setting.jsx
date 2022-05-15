@@ -3,7 +3,7 @@ import eye from "./eye.svg";
 
 const Settings = () => {
     return (
-      <div class="main-u">
+      <div class="setting-main main-u">
         <div class="inner-u">
 
           
