@@ -63,15 +63,15 @@ body{
   margin: 0 15px;
   font-weight: 600;
   }
-  .nft-name,
-  .nft-price
+  .nft-name-explore,
+  .nft-price-explore
   {
   color: white;
   width: 40%;
-  /* background-color: red; */
+  
   padding: 20px 0;
   }
-  .nft-price
+  .nft-price-explore
   {
   text-align: right;
   }
