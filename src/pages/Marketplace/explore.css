@@ -27,6 +27,9 @@ body{
   .nft-container {
     margin: auto;
   }
+  .nft_card{
+    padding: 10px;
+  }
   .details-div{
     background-color: rgb(48 51 57);
     border: 1px solid rgb(21, 27, 34);
