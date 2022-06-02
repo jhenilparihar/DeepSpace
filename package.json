@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "NFT Marketplace",
   "author": "Harsh Ghosalkar - Jhenil Parihar - Dev Jobalia",
-  "homepage": "https://github.com/HarshDilipGhosalkar/NFT-MARKETPLACE",
+  "homepage": "https://github.com/jhenilparihar/DeepSpace",
   "dependencies": {
     "@openzeppelin/contracts": "^3.4.1",
     "babel-polyfill": "6.26.0",
