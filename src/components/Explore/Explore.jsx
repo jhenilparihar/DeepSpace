@@ -11,7 +11,7 @@ import Loading from "../Loading/Loading";
 import NFTDetails from "../NFTDetails/NFTDetails";
 import { Link } from "react-router-dom";
 
-const AllNFTs = ({
+const Explore = ({
   AllNFT,
   accountAddress,
   totalTokensMinted
@@ -281,4 +281,4 @@ const AllNFTs = ({
   );
 };
 
-export default AllNFTs;
+export default Explore;
