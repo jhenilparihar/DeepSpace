@@ -1,21 +1,12 @@
 import React, { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
 import eth from "./eth.svg";
 import filter from "./filter.svg";
 import open from "./open.svg";
-import back from "./back.svg";
 import "./explore.css";
-import avatar1 from "./avatar.png";
-import avatar2 from "./avatar2.png";
 import Loading from "../Loading/Loading";
-import NFTDetails from "../NFTDetails/NFTDetails";
 import { Link } from "react-router-dom";
 
-const Explore = ({
-  AllNFT,
-  accountAddress,
-  totalTokensMinted
-}) => {
+const Explore = ({ AllNFT, accountAddress, totalTokensMinted }) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -91,41 +82,6 @@ const Explore = ({
     });
   }
   return (
-    // <div>
-    //   <div className="card mt-1">
-    //     <div className="card-body align-items-center d-flex justify-content-center">
-    //       <h5>
-    //         Total No. of NFT's Minted On The Platform :{" "}
-    //         {totalTokensMinted}
-    //       </h5>
-    //     </div>
-    //   </div>
-    //   <div className="d-flex flex-wrap mb-2">
-    //     {AllNFT.map((NFT) => {
-    //       return (
-    //         <div
-    //           key={NFT.tokenId.toNumber()}
-    //           className="w-50 p-4 mt-1 border"
-    //         >
-    //           {!loading ? (
-    //                 <img height={250} width={250} src={NFT.metaData !== undefined
-    //                            ? NFT.metaData.imageUrl
-    //                           : ""} alt="" />
-    //               ) : (
-    //                 <Loading />
-    //               )}
-    //           <NFTDetails
-    //             NFT={NFT}
-    //             accountAddress={accountAddress}
-    //             changeTokenPrice={changeTokenPrice}
-    //             toggleForSale={toggleForSale}
-    //             buyNFT={buyNFT}
-    //           />
-    //         </div>
-    //       );
-    //     })}
-    //   </div>
-    // </div>
     <>
       <div class="outer-container">
         <div class="slider1">
@@ -211,65 +167,55 @@ const Explore = ({
             <div className="container">
               <div class="row nft-container">
                 {AllNFT.map((NFT) => {
-                  return (   
+                  return (
                     <div
                       key={NFT.tokenId.toNumber()}
                       class="col-3 col-lg-3 col-md-6 col-sm-1 align-items-center nft_card"
                     >
-                      <Link to={"/assets/details/" + NFT.tokenId.toNumber() }>
-                      <div className="details-div">
-                        <div class="inner-div">
-                          {!loading ? (
-                            <img
-                              class="buy-nft-image"
-                              src={
-                                NFT.metaData !== undefined
-                                  ? NFT.metaData.imageUrl
-                                  : ""
-                              }
-                              alt=""
-                            />
-                          ) : (
-                            <Loading />
-                          )}
-                        </div>
-                        <div class="row nft-details">
-                          <div class="col nft-name-explore">
-                            <p class="n">
-                              {NFT.currentOwner.substr(0, 5) +
-                                "..." +
-                                NFT.currentOwner.slice(
-                                  NFT.currentOwner.length - 5
-                                )}
-                            </p>
-                            <p class="nft-owner-name-explore">{NFT.tokenName}</p>
+                      <Link to={"/assets/details/" + NFT.tokenId.toNumber()}>
+                        <div className="details-div">
+                          <div class="inner-div">
+                            {!loading ? (
+                              <img
+                                class="buy-nft-image"
+                                src={
+                                  NFT.metaData !== undefined
+                                    ? NFT.metaData.imageUrl
+                                    : ""
+                                }
+                                alt=""
+                              />
+                            ) : (
+                              <Loading />
+                            )}
                           </div>
-                          <div class="col nft-price-explore">
-                            <p class="n">Price</p>
-                            <p>
-                              <img src={eth} alt="" class="ether-img" /> 
-                              {" "}
-          {window.web3.utils.fromWei(
-            NFT.price.toString(),
-            
-          )}{" "}
-                            </p>
+                          <div class="row nft-details">
+                            <div class="col nft-name-explore">
+                              <p class="n">
+                                {NFT.currentOwner.substr(0, 5) +
+                                  "..." +
+                                  NFT.currentOwner.slice(
+                                    NFT.currentOwner.length - 5
+                                  )}
+                              </p>
+                              <p class="nft-owner-name-explore">
+                                {NFT.tokenName}
+                              </p>
+                            </div>
+                            <div class="col nft-price-explore">
+                              <p class="n">Price</p>
+                              <p>
+                                <img src={eth} alt="" class="ether-img" />{" "}
+                                {window.web3.utils.fromWei(
+                                  NFT.price.toString()
+                                )}{" "}
+                              </p>
+                            </div>
                           </div>
+                          <div class="row buy-details"></div>
                         </div>
-                        <div class="row buy-details">
-                        {/* <NFTDetails
-                NFT={NFT}
-                accountAddress={accountAddress}
-                // changeTokenPrice={changeTokenPrice}
-                // toggleForSale={toggleForSale}
-                buyNFT={buyNFT}
-              /> */}
-              
-                        </div>
-                      </div>
                       </Link>
                     </div>
-                    
                   );
                 })}
               </div>
