@@ -1,0 +1,237 @@
+/* ###################### #################*/
+
+/* user-form */
+.setting-main {
+  position: relative;
+  /* align-items: center; */
+  height: 90rem;
+  background-color: rgb(32, 34, 37);
+  color: white;
+}
+.setting-main .form-c h1,
+.setting-main .form-u h1 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 40px;
+  margin-bottom: 35px;
+}
+.setting-main .form-u label {
+  font-size: 17px;
+  font-weight: 600;
+  /* margin-bottom: 50px; */
+}
+.setting-main .form-profile-setting {
+  /* background-color: rgba(255,255,255,0.3); */
+  display: block;
+  text-align: left;
+  position: relative;
+  top: 100px;
+}
+
+.setting-main .form-u {
+  width: 70%;
+  margin: auto;
+}
+/* input[type=text]{
+    height: 3rem;
+    width: 30rem;
+    background-color: rgba(255,255,255,0.3);
+    border-radius: 10px;
+    position: relative;
+    border: none;
+  }
+  input[type=text]:focus{
+    border: none;
+  } */
+
+.setting-main #has2 {
+  margin: 1px 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.setting-main #has1 {
+  margin-bottom: 1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.setting-main .input-group {
+  display: block;
+  width: 39rem;
+  max-width: 100%;
+  height: 5rem;
+  border: 0;
+  background-color: rgb(53, 56, 64);
+  border-radius: 10px;
+  box-shadow: 0 17px 40px 0 rgba(75, 128, 182, 0.07);
+  margin-bottom: 22px;
+  position: relative;
+  font-size: 17px;
+  color: #a7b4c1;
+  transition: opacity 0.2s ease-in-out, filter 0.2s ease-in-out,
+    box-shadow 0.1s ease-in-out;
+  margin: 20px 0;
+}
+.setting-main textarea {
+  background-color: rgb(53, 56, 64);
+  resize: vertical;
+  width: 39rem;
+  outline: none;
+  border-radius: 10px;
+  border: none;
+  margin: 20px 0;
+  color: #9bf6ff;
+  padding: 10px 0 0 20px;
+  font-size: 17px;
+}
+.setting-main textarea:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.setting-main .input-group:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.setting-main .input-group:hover {
+  box-shadow: 0 14px 44px 0 rgba(0, 0, 0, 0.077);
+}
+
+.setting-main .input-group .form-control {
+  position: absolute;
+  border: 0;
+  outline: none;
+  box-shadow: none;
+  background-color: rgba(255, 255, 255, 0);
+  top: 0;
+  height: 3rem;
+  width: 100%;
+  padding: 0 53px;
+  box-sizing: border-box;
+  z-index: 3;
+  display: block;
+  color: #9bf6ff;
+  font-size: 17px;
+  font-family: "Oxygen", sans-serif;
+  transition: top 0.1s ease-in-out;
+}
+
+.setting-main .input-group input::placeholder {
+  color: rgba(0, 0, 0, 0);
+}
+
+.setting-main .input-group input:focus,
+.setting-main .input-group input:not(:placeholder-shown) {
+  top: 12px;
+  outline: none;
+}
+
+.setting-main .input-group label {
+  position: absolute;
+  border: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  padding: 0 53px;
+  box-sizing: border-box;
+  transition: all 0.1s ease-in-out;
+  cursor: text;
+}
+
+.setting-main .input-group input:focus + label,
+.setting-main .input-group input:not(:placeholder-shown) + label {
+  bottom: 20px;
+  font-size: 13px;
+  /* opacity: 0.7; */
+}
+
+.setting-main .save-btn {
+  border: none;
+  outline: none;
+  background-color: #3aa3f7;
+  color: white;
+  margin: 25px 0;
+  width: 10rem;
+  height: 5rem;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 600;
+}
+.setting-main .ppp {
+  margin: 20px 0;
+  position: absolute;
+  width: 40%;
+  top: 1px;
+  right: 1px;
+}
+.setting-main #image {
+  height: 14rem;
+  width: 14rem;
+  border-radius: 50%;
+  background: linear-gradient(
+    90deg,
+    hsla(116, 50%, 48%, 1) 0%,
+    hsla(101, 46%, 8%, 1) 100%
+  );
+  position: relative;
+  cursor: pointer;
+  align-items: center;
+  margin: 20px 5px;
+}
+.setting-main #image:hover {
+  background-color: black;
+}
+.setting-main #banner:hover {
+  background-color: black;
+}
+
+.setting-main .banner-image {
+  margin-top: 40px;
+}
+.setting-main #banner {
+  height: 14rem;
+  width: 14rem;
+  border-radius: 20px;
+  background-color: #131322;
+  position: relative;
+  cursor: pointer;
+  align-items: center;
+  margin: 20px 5px;
+}
+.setting-main .preview-btn {
+  border: 1px solid grey;
+  outline: none;
+  background-color: rgb(32, 34, 37);
+  color: white;
+  margin: 35px 0;
+  width: 14rem;
+  height: 5rem;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.setting-main .prev-btn-img {
+  width: 25px;
+  margin: 5px;
+}
+/* user-form-end */
+
+.prev-btn-img {
+  width: 25px;
+  margin: 5px;
+}
+/* user-form-end */
+
+/* ##################################### */
+
+.nft-input input[type="file"] {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
