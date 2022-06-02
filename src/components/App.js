@@ -6,20 +6,18 @@ import Web3 from "web3";
 import Marketplace from "../abis/Marketplace.json";
 
 import FormAndPreview from "../components/FormAndPreview/FormAndPreview";
-import AllNFTs from "./AllNFTs/AllNFTs";
+import Explore from "./Explore/Explore";
 import Home from "./Home/Home";
 import ContractNotDeployed from "./ContractNotDeployed/ContractNotDeployed";
 import ConnectToMetamask from "./ConnectMetamask/ConnectToMetamask";
 import Loading from "./Loading/Loading";
 import Navbar from "./Navbar/Navbar";
 import MyNFTs from "./MyNFTs/MyNFTs";
-import AssetsDetails from "./AssetsDetails/AssetsDetails";
 import Queries from "./Queries/Queries";
 import Profile from "./Profile/Profile";
 import Settings from "./Profile/profile-setting";
-import NoPage from './pages/NoPage/NoPage';
-import NFTDetails from './NFTDetails/NFTDetail';
-
+import NoPage from "./pages/NoPage/NoPage";
+import NFTDetails from "./NFTDetails/NFTDetail";
 
 const ipfsClient = require("ipfs-http-client");
 const ipfs = ipfsClient({
@@ -282,7 +280,7 @@ class App extends Component {
                   <Route
                     path="marketplace"
                     element={
-                      <AllNFTs
+                      <Explore
                         accountAddress={this.state.accountAddress}
                         AllNFT={this.state.NFTs}
                         totalTokensMinted={this.state.totalTokensMinted}
@@ -328,107 +326,22 @@ class App extends Component {
                       />
                     }
                   />
-                  <Route path="assets/details/:id" element={<NFTDetails 
-                    accountAddress={this.state.accountAddress}
-                    AllNFT={this.state.NFTs}
-                    changeTokenPrice={this.changeTokenPrice}
-                    toggleForSale={this.toggleForSale}
-                    buyNFT={this.buyNFT}
-                  />} />
+                  <Route
+                    path="assets/details/:id"
+                    element={
+                      <NFTDetails
+                        accountAddress={this.state.accountAddress}
+                        AllNFT={this.state.NFTs}
+                        changeTokenPrice={this.changeTokenPrice}
+                        toggleForSale={this.toggleForSale}
+                        buyNFT={this.buyNFT}
+                      />
+                    }
+                  />
                   <Route path="*" element={<NoPage />} />
                 </Route>
               </Routes>
             </BrowserRouter>
-
-            {/* <HashRouter basename="/">
-              <Navbar 
-              accountAddress={this.state.accountAddress}
-              accountBalance={this.state.accountBalance}
-              />
-              <Route
-                path="/"
-                exact
-                render={() => (
-                  <Home
-                    accountAddress={this.state.accountAddress}
-                    accountBalance={this.state.accountBalance}
-                  />
-                )}
-              />
-              <Route
-                path="/mint"
-                render={() => (
-                  <FormAndPreview
-                    mintMyNFT={this.mintMyNFT}
-                    nameIsUsed={this.state.nameIsUsed}
-                    imageIsUsed={this.state.imageIsUsed}
-                    setMintBtnTimer={this.setMintBtnTimer}
-                  />
-                )}
-              />
-              <Route
-                path="/marketplace"
-                render={() => (
-                  <AllNFTs
-                    accountAddress={this.state.accountAddress}
-                    AllNFT={this.state.NFTs}
-                    totalTokensMinted={this.state.totalTokensMinted}
-                    changeTokenPrice={this.changeTokenPrice}
-                    toggleForSale={this.toggleForSale}
-                    buyNFT={this.buyNFT}
-                  />
-                )}
-              />
-              <Route
-                path="/my-tokens"
-                render={() => (
-                  <MyNFTs
-                    accountAddress={this.state.accountAddress}
-                    NFTs={this.state.NFTs}
-                    totalTokensOwnedByAccount={
-                      this.state.totalTokensOwnedByAccount
-                    }
-                  />
-                )}
-              />
-              <Route
-                path="/profile"
-                render={() => (
-                  <Profile
-                    // accountAddress={this.state.accountAddress}
-                    // NFTs={this.state.NFTs}
-                    // totalTokensOwnedByAccount={
-                    //   this.state.totalTokensOwnedByAccount
-                    // }
-                  />
-                )}
-              />
-              <Route
-                path="/profile-settings"
-                render={() => (
-                  <Settings
-                    // accountAddress={this.state.accountAddress}
-                    // NFTs={this.state.NFTs}
-                    // totalTokensOwnedByAccount={
-                    //   this.state.totalTokensOwnedByAccount
-                    // }
-                  />
-                )}
-              />
-              <Route
-                path="/queries"
-                render={() => (
-                  <Queries NFTsContract={this.state.NFTContract} />
-                )}
-              />
-              <Route
-                path="/asset/details/:id"
-                exact
-                render={() => (
-                  <NFTDetails/>
-                )}
-              />
-            </HashRouter> */}
           </>
         )}
       </>

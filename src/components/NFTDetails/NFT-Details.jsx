@@ -29,12 +29,12 @@ class NFTDetails extends Component {
               </div>
               <div className="row nft-image-div">
                 <img
-                src={
-                  this.props.NFT.metaData !== undefined
-                    ? this.props.NFT.metaData.imageUrl
-                    : ""
-                }
-                alt=""
+                  src={
+                    this.props.NFT.metaData !== undefined
+                      ? this.props.NFT.metaData.imageUrl
+                      : ""
+                  }
+                  alt=""
                 ></img>
               </div>
             </div>
@@ -171,11 +171,6 @@ class NFTDetails extends Component {
                           </button>
                         </form>
                       ) : null}
-
-                      {/* <button class="buy_now-btn">
-                        <img class="wallet_icon" src={wallet} alt=""></img>
-                        Buy now
-                      </button> */}
 
                       {this.props.accountAddress ===
                       this.props.NFT.currentOwner ? (
