@@ -89,6 +89,26 @@ class FormAndPreview extends Component {
                 ></input>
                 {/* <label for="text-1542372332072"> Name</label> */}
               </div>
+              <br />
+              <label for="text-1542372332072" class="head">
+                Price <span class="highlight">*</span>
+              </label>
+              <div class="input-group">
+                <input
+                  class="form-control"
+                  type="number"
+                  name="text-1542372332072"
+                  id="text-1542372332072"
+                  required="required"
+                  value={this.state.NFTPrice}
+                  placeholder="Price"
+                  onChange={(e) =>
+                    this.setState({ NFTPrice: e.target.value })
+                  }
+                ></input>
+                {/* <label for="text-1542372332072"> Name</label> */}
+              </div>
+            
               <div class="des-group">
                 <label for="des" class="head">
                   Description
@@ -102,9 +122,9 @@ class FormAndPreview extends Component {
                     rows="8"
                     cols="60"
                     placeholder="Share about your NFT."
-                    onChange={(e) =>
-                      this.setState({ NFTPrice: e.target.value })
-                    }
+                    // onChange={(e) =>
+                    //   this.setState({ NFTPrice: e.target.value })
+                    // }
                   ></textarea>
               </div>
               <hr></hr>
