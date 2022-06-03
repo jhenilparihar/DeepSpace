@@ -44,6 +44,7 @@ class App extends Component {
       imageIsUsed: false,
       imageHash: "",
       lastMintTime: null,
+      currentProfile:"",
     };
   }
 
@@ -52,6 +53,12 @@ class App extends Component {
     await this.loadBlockchainData();
     await this.setMetaData();
     await this.setMintBtnTimer();
+    const isProfileSet = await this.state.NFTContract.methods
+    .isProfileSet(this.state.accountAddress)
+    .call();
+  if(!isProfileSet){
+    await this.uploadProfile("","https://bafybeih5pgcobf6hpgf2pexmkhfsk55zr4dywrazgybk7u2fp6w4webkxu.ipfs.infura-ipfs.io/","Unnamed","No description","abc@gmail.com");
+  }  
   };
 
   setMintBtnTimer = () => {
@@ -133,6 +140,12 @@ class App extends Component {
         let totalTokensMinted = await NFTContract.methods
           .getNumberOfTokensMinted()
           .call();
+
+        const cp = await NFTContract.methods
+        .allProfiles(this.state.accountAddress)
+        .call();
+        this.setState({ currentProfile: cp });
+
         totalTokensMinted = totalTokensMinted.toNumber();
         this.setState({ totalTokensMinted });
         let totalTokensOwnedByAccount = await NFTContract.methods
@@ -146,6 +159,18 @@ class App extends Component {
       }
     }
   };
+
+
+  uploadProfile = async (bannerHash,imageHash, name, description,email) => {
+    this.state.NFTContract.methods
+        .addUserProfile(bannerHash,imageHash, name, description,this.state.accountAddress,email)
+        .send({ from: this.state.accountAddress })
+        .on("confirmation", () => {
+          localStorage.setItem(this.state.accountAddress, new Date().getTime());
+          this.setState({ loading: false });
+          window.location.reload();
+        });
+  }
 
   connectToMetamask = async () => {
     await window.ethereum.enable();
@@ -220,6 +245,8 @@ class App extends Component {
     }
   };
 
+
+  
   toggleForSale = (tokenId) => {
     this.setState({ loading: true });
     this.state.NFTContract.methods
@@ -306,11 +333,7 @@ class App extends Component {
                     path="profile"
                     element={
                       <Profile
-                      // accountAddress={this.state.accountAddress}
-                      // NFTs={this.state.NFTs}
-                      // totalTokensOwnedByAccount={
-                      //   this.state.totalTokensOwnedByAccount
-                      // }
+                      currentProfile={this.state.currentProfile}
                       />
                     }
                   />
@@ -318,11 +341,10 @@ class App extends Component {
                     path="profile/settings"
                     element={
                       <Settings
-                      // accountAddress={this.state.accountAddress}
-                      // NFTs={this.state.NFTs}
-                      // totalTokensOwnedByAccount={
-                      //   this.state.totalTokensOwnedByAccount
-                      // }
+                      uploadProfile ={this.uploadProfile}
+                      // cryptoBoysContract={this.state.cryptoBoysContract}
+                      accountAddress={this.state.accountAddress}
+                      currentProfile={this.state.currentProfile}
                       />
                     }
                   />

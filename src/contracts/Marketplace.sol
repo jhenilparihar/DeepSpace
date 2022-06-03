@@ -29,7 +29,18 @@ contract Marketplace is ERC721 {
     uint256 numberOfTransfers;
     bool forSale;
   }
-
+ struct UserProfile {
+    string bannerHash;
+    string imageHash;
+    string name;
+    string description;
+    address user;
+    string email;
+  }
+  // map user addresses to their profile
+  mapping(address => UserProfile) public allProfiles;
+  // check whether profile isset or not
+  mapping(address => bool) public isProfileSet;
   // map NFT's token id to NFT
   mapping(uint256 => NFT) public allNFTs;
 
@@ -233,4 +244,22 @@ contract Marketplace is ERC721 {
     // set and update that token in the mapping
     allNFTs[_tokenId] = nft;
   }
+
+function addUserProfile(string memory _bannerHash,string memory _imageHash, string memory _name,string memory _description,address _user,string memory _email) external {
+   // require caller of the function is not an empty address
+    require(msg.sender != address(0));
+
+    UserProfile memory userprofile = allProfiles[_user];
+    
+    userprofile.bannerHash=_bannerHash;
+    userprofile.email=_email;
+    userprofile.imageHash=_imageHash;
+    userprofile.name=_name;
+    userprofile.description=_description;
+    userprofile.user=_user;
+    // add the user's address and it's profile to all allProfiles mapping
+    allProfiles[_user] = userprofile;
+    isProfileSet[_user] = true;
+  }
+
 }

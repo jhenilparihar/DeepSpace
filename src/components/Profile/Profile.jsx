@@ -5,26 +5,30 @@ import share from './share.png';
 import profileImage from './avatar.png';
 import React from "react";
 
-const Profile = () => {
+const Profile = ({currentProfile}) => {
+  console.log(currentProfile.imageHash);
   return (
     <div class="main">
       <div class="upper">
+      <img src={currentProfile.bannerHash} alt="" />
         <input type="file" />
       </div>
       <div class="details">
         <div class="details-inner">
           <div class="prof-img">
             
-          <img src={profileImage} alt="" />
-          <input type="file" />
+          <img src={currentProfile.imageHash} alt="" />
+          {/* <input type="file" /> */}
             <div className="profile-img-overlay">
 
             </div>
           </div>
           <div class="user-details">
-            <h1>Unnamed</h1>
-            <div class="address">0xdb5D...1108</div>
+            <h1>{currentProfile.name}</h1>
+            <div class="address">{currentProfile.user}</div>
             <p>Joined May 2022</p>
+            <p>{currentProfile.description}</p>
+            <p>{currentProfile.email}</p>
           </div>
         </div>
           <div class="share__Icon">
