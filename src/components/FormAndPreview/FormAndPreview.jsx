@@ -78,8 +78,8 @@ class FormAndPreview extends Component {
                 <input
                   class="form-control"
                   type="text"
-                  name="text-1542372332072"
-                  id="text-1542372332072"
+                  name="text-1542372332012"
+                  id="text-1542372332012"
                   required="required"
                   value={this.state.NFTName}
                   placeholder="Item name"
@@ -97,8 +97,8 @@ class FormAndPreview extends Component {
                 <input
                   class="form-control"
                   type="number"
-                  name="text-1542372332072"
-                  id="text-1542372332072"
+                  name="text-1542372332032"
+                  id="text-1542372332032"
                   required="required"
                   value={this.state.NFTPrice}
                   placeholder="Price"
