@@ -170,7 +170,7 @@ const Explore = ({ AllNFT, accountAddress, totalTokensMinted }) => {
                   return (
                     <div
                       key={NFT.tokenId.toNumber()}
-                      class="col-3 col-lg-3 col-md-6 col-sm-1 align-items-center nft_card"
+                      class="col-4 col-lg-4 col-md-6 col-sm-1 align-items-center nft_card"
                     >
                       <Link to={"/assets/details/" + NFT.tokenId.toNumber()}>
                         <div className="details-div">
