@@ -24,10 +24,18 @@ class FormAndPreview extends Component {
   };
 
   onUpload = async (e) => {
+    const image = document.querySelector(".img-uploaded");
+    const fileInput = document.querySelector(".img-fileInput");
+    
     const file = e.target.files[0]
     try {
       const added = await ipfs.add(file)
       const url = `https://ipfs.infura.io/ipfs/${added.path}`
+      
+      image.style.height = "100%";
+      image.style.width = "100%";
+      fileInput.style.opacity ="0";
+
       this.setState({ fileUrl: url})
       this.setState({ imageIsUpload: true})
       console.log(url);
@@ -67,8 +75,8 @@ class FormAndPreview extends Component {
                   OGG, GLB, GLTF. Max size: 100 MB
                 </p>
                 <div id="b2" class="nft-image">
-                  <input type="file" onChange={this.onUpload} />
-                  {/* <img src={fileUp}></img> */}
+                    <img class="img-uploaded" src={this.state.fileUrl} />
+                    <input class="img-fileInput" type="file" onChange={this.onUpload} />
                 </div>
               </div>
               <label for="text-1542372332072" class="head">
@@ -130,12 +138,12 @@ class FormAndPreview extends Component {
               <hr></hr>
               <br />
               {!this.state.imageIsUpload ? (
-              <button type="submit" class="create-btn" disabled>
-                Create
+              <button type="submit" class="create-btn create-btn-disabled" disabled>
+                Create NFT
               </button>
               ) : (
                 <button type="submit" class="create-btn">
-                Create
+                Create NFT
               </button>
               )}
               

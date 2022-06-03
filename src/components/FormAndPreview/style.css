@@ -22,7 +22,7 @@ form {
   color: rgb(138, 147, 155);
 }
 .highlight {
-  color: red;
+  color: #ff4b4b;
 }
 .head {
   color: rgb(229, 232, 235);
@@ -31,7 +31,7 @@ form {
 }
 
 .nft-image:hover {
-  background-color: black;
+  background-color: #0000003d;
   cursor: pointer;
 }
 
@@ -41,7 +41,6 @@ form {
 .nft-image {
   margin: 20px 0px;
   position: relative;
-  padding: 4px;
   cursor: pointer;
   border: 3px dashed rgb(204, 204, 204);
   border-radius: 10px;
@@ -50,16 +49,20 @@ form {
   justify-content: center;
   height: 257px;
   width: 350px;
+  padding: 5px;
 }
 .nft-image input[type="file"] {
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  opacity: 1;
   width: 100%;
   height: 100%;
+}
+.img-uploaded {
+  max-height: 100%;
+  max-width: 100%;
+  /* object-fit: ; */
+}
+.nft-image img {
+  border: 0;
 }
 .input-group {
   background-color: rgb(53, 56, 64);
@@ -133,4 +136,10 @@ hr {
   background-color: rgb(32, 129, 226);
   border: 1px solid rgb(32, 129, 226);
   color: rgb(255, 255, 255);
+}
+
+.create-btn-disabled {
+  background-color: rgb(116 186 255);
+  border: 1px solid rgb(0 0 0);
+  color: rgb(212 212 212);
 }
