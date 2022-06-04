@@ -130,7 +130,7 @@ class NFTDetails extends Component {
                               ></img>
                               Buy now
                             </button>
-                            <p className="mt-2">Currently not for sale!</p>
+                            <p class="notForSale">Currently not for sale!</p>
                           </>
                         )
                       ) : null}
