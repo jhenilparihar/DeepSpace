@@ -25,8 +25,14 @@ const Profile = ({currentProfile}) => {
           </div>
           <div class="user-details">
             <h1>{currentProfile.name}</h1>
-            <div class="address">{currentProfile.user}</div>
+            
+            <div class="address">{currentProfile.user.substr(0, 5) +
+                      "..." +
+                      currentProfile.user.slice(
+                        currentProfile.user.length - 5
+                      )}</div>
             <p>Joined May 2022</p>
+
             <p>{currentProfile.description}</p>
             <p>{currentProfile.email}</p>
           </div>
