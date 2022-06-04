@@ -6,6 +6,7 @@ import logo from './assets/opensea.svg';
 import avatar from './assets/avatar.png'
 import walletIcon from './assets/icons8-wallet-48.png'
 import eth from './assets/eth.svg'
+import search from './search.svg';
 
 const Navbar = ({ accountAddress, accountBalance, profileImage }) => {
 
@@ -45,8 +46,9 @@ const Navbar = ({ accountAddress, accountBalance, profileImage }) => {
 
         <nav id="navbar" class="navbar">
           <div class="search-bar">
+            <img src={search} alt="" class="search__icon "/>
             <input type="text" id="box" placeholder="Search items,Collections and Account" class="search__box" />
-            {/* <i class="fas fa-search search__icon" id="icon"></i> */}
+            {/* <img src={search} alt="" /> */}
           </div>
 
           <ul>
