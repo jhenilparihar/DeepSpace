@@ -131,7 +131,7 @@ class App extends Component {
         if (!isProfileSet) {
           console.log("See")
           await this.uploadProfile(
-            "",
+            "https://ipfs.infura.io/ipfs/QmeAcsFZfRd719RHMivPUitJpXzH54k8d3CXpmvmLZnF7A",
             "https://bafybeih5pgcobf6hpgf2pexmkhfsk55zr4dywrazgybk7u2fp6w4webkxu.ipfs.infura-ipfs.io/",
             "Unnamed",
             "No description",
