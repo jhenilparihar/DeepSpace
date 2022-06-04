@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import './Queries.css';
 const Queries = (props) => {
   const [tokenIdForOwner, setTokenIdForOwner] = useState("");
   const [tokenOwner, setTokenOwner] = useState("");
@@ -51,27 +51,45 @@ const Queries = (props) => {
 
   return (
     <div>
-      <div className="card mt-1">
+      <div className="card mt-1 query">
         <div className="card-body align-items-center d-flex justify-content-center">
-          <h5>Queries</h5>
+        <h1 class="query-title">Query</h1>
         </div>
       </div>
-      <div className="p-4 mt-1 border">
+      <div className=" mt-1 get-data">
         <div className="row">
-          <div className="col-md-5">
-            <h5>Get Token Owner</h5>
+        <div className="col-md-1">
+
+</div>
+          <div className="col-md-4">
+            
             <form onSubmit={getTokenOwner}>
+            
               <div className="form-group">
+              <label for="text-1542372332072" class="head">
+                Owner 
+                {/* <span class="highlight">*</span> */}
+              </label>
+              <div class="input-group get-input">
                 <input
+                  class="form-control"
+                  type="text"
+                  name="text-1542372332012"
+                  id="text-1542372332012"
+                  value={tokenIdForOwner}
+                  placeholder="Enter Token Id"
+                  onChange={(e) => setTokenIdForOwner(e.target.value)}
+                ></input></div>
+                {/* <input
                   required
                   type="text"
                   className="form-control"
                   value={tokenIdForOwner}
                   placeholder="Enter Token Id"
                   onChange={(e) => setTokenIdForOwner(e.target.value)}
-                />
+                /> */}
               </div>
-              <button className="mt-3 btn btn-outline-primary" type="submit">
+              <button type="submit" class="create-btn query-btn">
                 Get Owner
               </button>
               {tokenIdForOwnerNotFound ? (
@@ -83,23 +101,40 @@ const Queries = (props) => {
                 </div>
               ) : null}
             </form>
-            <p className="mt-4">{tokenOwner}</p>
+            <p className="mt-4 retieved-data">{tokenOwner}</p>
           </div>
-          <div className="col-md-7">
-            <h5>Get Token Metadata</h5>
+          <div className="col-md-2">
+
+          </div>
+          <div className="col-md-4">
+            {/* <h5>Get Token Metadata</h5> */}
             <form onSubmit={getTokenMetadata}>
               <div className="form-group">
-                <input
+                {/* <input
                   required
                   type="text"
                   className="form-control"
                   value={tokenIdForMetadata}
                   placeholder="Enter Token Id"
                   onChange={(e) => setTokenIdForMetadata(e.target.value)}
-                />
+                /> */}
+                <label for="text-1542372332072" class="head">
+                Get Token Metadata 
+                {/* <span class="highlight">*</span> */}
+              </label>
+              <div class="input-group get-input">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="text-1542372332012"
+                  id="text-1542372332012"
+                  value={tokenIdForMetadata}
+                  placeholder="Enter Token Id"
+                  onChange={(e) => setTokenIdForMetadata(e.target.value)}
+                ></input></div>
               </div>
-              <button className="mt-3 btn btn-outline-primary" type="submit">
-                Get Metadata
+              <button type="submit" class="create-btn query-btn">
+                Get Token Metadata
               </button>
               {tokenIdForMetadataNotFound ? (
                 <div className="alert alert-danger alert-dissmissible mt-4">
@@ -112,6 +147,7 @@ const Queries = (props) => {
             </form>
             <p className="mt-4">
               <a
+              class="retieved-data"
                 href={`${tokenMetadataLink}`}
                 target="_blank"
                 rel="noopener noreferrer"
