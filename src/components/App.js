@@ -300,6 +300,7 @@ class App extends Component {
                     <Navbar
                       accountAddress={this.state.accountAddress}
                       accountBalance={this.state.accountBalance}
+                      profileImage={this.state.currentProfile.imageHash}
                     />
                   }
                 >
