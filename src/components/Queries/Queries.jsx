@@ -36,7 +36,7 @@ const Queries = (props) => {
         .getTokenMetaData(tokenIdForMetadata)
         .call();
       setTokenMetadata(
-        metadata.substr(0, 60) + "..." + metadata.slice(metadata.length - 5)
+        metadata.substr(0, 40) + "..." + metadata.slice(metadata.length - 5)
       );
       setTokenMetadataLink(metadata);
       setTimeout(() => {
