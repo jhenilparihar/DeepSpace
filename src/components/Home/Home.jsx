@@ -14,7 +14,7 @@ const Home = () => {
               OpenSea is the world's first and <br/> largest NFT marketplace
             </span>
             <div class="btn-div">
-              <Link to="/explore">
+              <Link to="/marketplace">
               <button type="submit" id="explore-btn">
                 Explore
               </button>
