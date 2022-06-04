@@ -4,14 +4,15 @@
     color: white;
     margin: 10px;
 }
-
+.detail-page__nft-image_section {
+    width: 40%;
+}
 .detail-page__nft-image {
     border-radius: 10px;
     border: 1px solid rgb(21, 27, 34);
     overflow: hidden;
     padding: 0;
     margin: 15px 10px 15px 20px;
-    width: 40%;
 }
 .nft-image-header {
     display: flex;
@@ -117,7 +118,7 @@
     border-radius: 10px;
     border: 1px solid rgb(21, 27, 34);
     overflow: hidden;
-    margin: 20px 0;
+    margin: 10px 0;
     padding: 0;
 }
 .created_on {
@@ -132,11 +133,35 @@
     font-weight: 400;
     font-size: 16px;
 }
+.div_title {
+    font-family: 'Poppins';
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+} 
+.detail_section {
+    margin: 15px 10px 15px 20px;
+}
+.div_content_text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    font-family: 'Poppins';
+    color: rgb(229, 232, 235);
+    font-weight: 400;
+}
+.description_content {
+    color: rgb(196 187 187);
+}
 
 .price_div {
     padding: 20px;
     background-color: rgb(48, 51, 57);
     margin: 0;
+}
+
+.price-input_detail {
+    max-width: 60%;
 }
 
 .price-header {
@@ -187,4 +212,54 @@
     border: 1px solid rgb(32, 129, 226);
     color: rgb(255, 255, 255);
     width: 200px;
+    margin-left: calc(var(--bs-gutter-x) * 0.5);
+
+}
+
+.details-main .change_price-btn{
+    margin-top: 5px;
+    background-color: rgb(2 2 2 / 32%);
+    border: 1px solid rgb(21, 27, 34);
+    color: rgb(199 199 199);    
+    align-items: center;
+    border-radius: 10px;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 15px;
+    margin-right: 20px;
+}
+.remove-btn,
+.keep-btn {
+    cursor: pointer;
+    display: flex;
+    min-height: 50px;
+    padding: 10px 20px;
+    border-width: 1px;
+    border-style: solid;
+    background-color: rgb(229 21 21 / 6%);
+    border-color: rgb(255 0 0 / 39%);
+    width: 345px;
+    color: rgb(229, 232, 235);
+    margin-left: calc(var(--bs-gutter-x) * 0.5);
+    align-items: center;
+    border-radius: 10px;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.keep-btn {
+    background-color: rgba(21, 178, 229, 0.06);
+    border-color: rgb(21, 178, 229);
+}
+
+.change-price-row {
+    padding: 0 0 15px 20px;
+}
+.description_image {
+    height: 20px;
+    width: 40px;
+    margin-top: 2px;
 }
