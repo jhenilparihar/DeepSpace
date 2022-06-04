@@ -42,10 +42,8 @@ body{
   }
   .details-div .inner-div{
     width: 100%;
-    height: 70%;
+    height: 375px;
     background-color: aqua;
-    /* background-image: url(https://lh3.googleusercontent.com/oyehZHlqitevPHLwNr4Ufu0cFIYCvfuvYAbOWVxZy1FZAWesjfyAuiPP4PQnW-XhKk48buOBDa4-MrT2ONIjQMo-jFiNPJ-bPhZDOOo=w361); */
-    
   }
   .buy-nft-image{
     object-fit:fill;
