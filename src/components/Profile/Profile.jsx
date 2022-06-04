@@ -19,9 +19,6 @@ const Profile = ({currentProfile}) => {
             
           <img src={currentProfile.imageHash} alt="" />
           {/* <input type="file" /> */}
-            <div className="profile-img-overlay">
-
-            </div>
           </div>
           <div class="user-details">
             <h1>{currentProfile.name}</h1>
@@ -34,7 +31,6 @@ const Profile = ({currentProfile}) => {
             <p>Joined May 2022</p>
 
             <p>{currentProfile.description}</p>
-            <p>{currentProfile.email}</p>
           </div>
         </div>
           <div class="share__Icon">
