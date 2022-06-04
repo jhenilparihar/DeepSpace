@@ -45,8 +45,8 @@ const Navbar = ({ accountAddress, accountBalance, profileImage }) => {
 
         <nav id="navbar" class="navbar">
           <div class="search-bar">
-            <input type="text" id="box" placeholder="Search anything..." class="search__box" />
-            <i class="fas fa-search search__icon" id="icon"></i>
+            <input type="text" id="box" placeholder="Search items,Collections and Account" class="search__box" />
+            {/* <i class="fas fa-search search__icon" id="icon"></i> */}
           </div>
 
           <ul>
