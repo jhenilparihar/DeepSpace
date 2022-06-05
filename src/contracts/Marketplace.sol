@@ -24,6 +24,7 @@ contract Marketplace is ERC721 {
   struct NFT {
     uint256 tokenId;
     string tokenName;
+    string tokenImage;
     string tokenURI;
     address payable mintedBy;
     address payable currentOwner;
@@ -105,6 +106,7 @@ contract Marketplace is ERC721 {
     NFT memory newNFT = NFT(
       NFTCounter,
       _name,
+      _imageHash,
       _tokenURI,
       msg.sender,
       msg.sender,
