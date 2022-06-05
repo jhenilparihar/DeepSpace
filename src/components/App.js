@@ -6,7 +6,6 @@ import Web3 from "web3";
 import Marketplace from "../abis/Marketplace.json";
 
 import FormAndPreview from "../components/FormAndPreview/FormAndPreview";
-import Explore from "./Explore/Explore";
 import Home from "./Home/Home";
 import ContractNotDeployed from "./ContractNotDeployed/ContractNotDeployed";
 import ConnectToMetamask from "./ConnectMetamask/ConnectToMetamask";
@@ -177,21 +176,22 @@ const overAllDate=month+" "+day+" "+year
         console.log(ProfileCounter)
 
         for (var i = 1; i <= ProfileCounter; i++) {
-          const profile = await NFTContract.methods.allProfilesDetails(i).call();
+          const address = await NFTContract.methods.allAddress(i).call();
           // this.setState({
           //   allUserProfile: [...this.state.allUserProfile, profile],
           // });
-          const address = profile.user
+          // const address = profile.user
+          const profile = await NFTContract.methods
+          .allProfiles(address)
+          .call();
+
           this.state.allUserProfile[address] = profile
         }
 
+        console.log(this.state.allUserProfile)
+
         totalTokensMinted = totalTokensMinted.toNumber();
         this.setState({ totalTokensMinted });
-        let totalTokensOwnedByAccount = await NFTContract.methods
-          .getTotalNumberOfTokensOwnedByAnAddress(this.state.accountAddress)
-          .call();
-        totalTokensOwnedByAccount = totalTokensOwnedByAccount.toNumber();
-        this.setState({ totalTokensOwnedByAccount });
         this.setState({ loading: false });
       } else {
         this.setState({ contractDetected: false });
@@ -365,6 +365,7 @@ const overAllDate=month+" "+day+" "+year
                         accountAddress={this.state.accountAddress}
                         AllNFT={this.state.NFTs}
                         totalTokensMinted={this.state.totalTokensMinted}
+                        allProfile={this.state.allUserProfile}
                       />
                     }
                   />
@@ -404,7 +405,6 @@ const overAllDate=month+" "+day+" "+year
                     element={
                       <Settings
                         uploadProfile={this.uploadProfile}
-                        // cryptoBoysContract={this.state.cryptoBoysContract}
                         accountAddress={this.state.accountAddress}
                         currentProfile={this.state.currentProfile}
                       />
@@ -419,6 +419,7 @@ const overAllDate=month+" "+day+" "+year
                         changeTokenPrice={this.changeTokenPrice}
                         toggleForSale={this.toggleForSale}
                         buyNFT={this.buyNFT}
+                        allProfile={this.state.allUserProfile}
                       />
                     }
                   />
