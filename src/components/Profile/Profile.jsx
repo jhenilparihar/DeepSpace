@@ -4,7 +4,7 @@ import setting from "./setting.png";
 import share from "./share.png";
 import React from "react";
 
-const Profile = ({ currentProfile }) => {
+const Profile = ({ currentProfile, AllNFT}) => {
   
 
   function MintedTab() {
