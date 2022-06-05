@@ -179,9 +179,7 @@ const Explore = ({ AllNFT, accountAddress, totalTokensMinted }) => {
                               <img
                                 class="buy-nft-image"
                                 src={
-                                  NFT.metaData !== undefined
-                                    ? NFT.metaData.imageUrl
-                                    : ""
+                                  NFT.tokenImage
                                 }
                                 alt=""
                               />
