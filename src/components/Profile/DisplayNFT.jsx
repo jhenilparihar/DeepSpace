@@ -81,7 +81,7 @@ class DisplayNFT extends Component {
           </li>
           <li>
             <button onClick={this.CollectionTab} class="option_link link_button2" href="#">
-              My Collection
+              Owned Collection
             </button>
             <div class="underline_2 option_underline"></div>
           </li>

@@ -189,11 +189,11 @@ h6 {
   border-radius: 10px;
   margin-top: 20px;
 }
-.col-1 {
+.canvas-area2 .col-1 {
   margin-top: 3px;
 }
 
-.col-3 h3 {
+.canvas-area2 .col-3 h3 {
   font-size: 14px;
   font-weight: 600;
   margin: 0;
@@ -204,12 +204,12 @@ h6 {
   font-size: 14px;
   color: rgb(138, 147, 155);
 }
-.col-4 h3 {
+.canvas-area2 .col-4 h3 {
   margin: 0;
   font-size: 14px;
   font-weight: 600;
 }
-.col-4 p {
+.canvas-area2 .col-4 p {
   font-weight: 400;
   font-size: 14px;
   color: rgb(138, 147, 155);

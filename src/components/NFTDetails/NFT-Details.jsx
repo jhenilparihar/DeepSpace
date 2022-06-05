@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react";
-
+import { Link } from "react-router-dom";
 import "./style.css";
 import eth from "./eth.svg";
 import wallet from "./wallet.png";
@@ -44,9 +43,14 @@ class NFTDetails extends Component {
                 <div className="row price_div">
                   <div className="row div_content_text description_content">
                     {
-                    this.props.NFT.metaData !== undefined
-                        ? this.props.NFT.metaData.description
-                        : <em>No Description</em>
+                    this.props.NFT.metaData !== undefined ? 
+                      (
+                        <>{this.props.NFT.metaData.description.length !== 0 ?
+                          this.props.NFT.metaData.description :
+                          <em>No Description</em>
+
+                        }</>
+                      ) : <em>No Description</em>
                     }
                   </div>
                 </div>
@@ -55,13 +59,11 @@ class NFTDetails extends Component {
             <div class="col col-sm-12 nft-item-details">
               <div className="row">
                 <div className="col-10 creator_details">
-                  <a class="creator-name" href="">
-                    {this.props.NFT.mintedBy.substr(0, 5) +
-                      "..." +
-                      this.props.NFT.mintedBy.slice(
-                        this.props.NFT.mintedBy.length - 5
-                      )}
-                  </a>
+                <Link to={"/profile/" + this.props.NFT.mintedBy}>
+                  <p class="creator-name" href="">
+                    {this.props.mintedByName}
+                  </p>
+                </Link>
                 </div>
                 <div className="col">
                   <div className="row nft-details-share">
@@ -75,13 +77,9 @@ class NFTDetails extends Component {
                 <div className="row owner_name">
                   <span>
                     Owned by{" "}
-                    <a href="">
-                      {this.props.NFT.currentOwner.substr(0, 5) +
-                        "..." +
-                        this.props.NFT.currentOwner.slice(
-                          this.props.NFT.currentOwner.length - 5
-                        )}
-                    </a>
+                    <Link to={"/profile/" + this.props.NFT.currentOwner}>
+                      {this.props.currentOwnerName}
+                    </Link>
                   </span>
                 </div>
                 <div className="row price_row">
@@ -214,36 +212,49 @@ class NFTDetails extends Component {
                     <div className="row div_content_text">
                       <div className="col-6">Previous Owner</div>
                       <div className="col-3">
-                        <a href="">
+                      <Link to={"/profile/" + this.props.NFT.previousOwner}>
                           {this.props.NFT.previousOwner.substr(0, 5) +
                             "..." +
                             this.props.NFT.previousOwner.slice(
                               this.props.NFT.previousOwner.length - 5
                             )}
-                        </a>
+                        </Link>
                       </div>
                     </div>
                     <div className="row div_content_text">
                       <div className="col-6">Owned By</div>
                       <div className="col-3">
-                        <a href="">
+                      <Link to={"/profile/" + this.props.NFT.currentOwner}>
                           {this.props.NFT.currentOwner.substr(0, 5) +
                             "..." +
                             this.props.NFT.currentOwner.slice(
                               this.props.NFT.currentOwner.length - 5
                             )}
-                        </a>
+                        </Link>
                       </div>
                     </div>
 
                     <div className="row div_content_text">
                       <div className="col-6">Minted By</div>
                       <div className="col-3">
-                        <a href="">
+                      <Link to={"/profile/" + this.props.NFT.mintedBy}>
                           {this.props.NFT.mintedBy.substr(0, 5) +
                             "..." +
                             this.props.NFT.mintedBy.slice(
                               this.props.NFT.mintedBy.length - 5
+                            )}
+                        </Link>
+                      </div>
+                    </div>
+
+                    <div className="row div_content_text">
+                      <div className="col-6">Token URI</div>
+                      <div className="col-3">
+                        <a href={this.props.NFT.tokenURI}>
+                          {this.props.NFT.tokenURI.substr(0,25) +
+                            "..." +
+                            this.props.NFT.tokenURI.slice(
+                              this.props.NFT.tokenURI.length - 5
                             )}
                         </a>
                       </div>

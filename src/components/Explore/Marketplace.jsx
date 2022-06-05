@@ -135,6 +135,11 @@ class Marketplace extends Component {
     });
   };
 
+  getUserName = (address) => {
+    const Profile = this.props.allProfile[address]
+    return Profile.name;
+  }
+
   render() {
     //   console.log(this.state.NFTToDisplay[0].tokenName)
     console.log(this.state.minPrice)
@@ -250,11 +255,9 @@ class Marketplace extends Component {
                                   <div class="row nft-details">
                                     <div class="col nft-name-explore">
                                       <p class="n">
-                                        {NFT.currentOwner.substr(0, 5) +
-                                          "..." +
-                                          NFT.currentOwner.slice(
-                                            NFT.currentOwner.length - 5
-                                          )}
+                                          <Link to={"/profile/" + NFT.currentOwner}>
+                                        {this.getUserName(NFT.currentOwner)}
+                                          </Link>
                                       </p>
                                       <p class="nft-owner-name-explore">
                                         {NFT.tokenName}
