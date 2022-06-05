@@ -17,8 +17,11 @@ contract Marketplace is ERC721 {
   // total number of NFT minted
   uint256 public NFTCounter;
 
+  // total number of User Created
+  uint256 public UserCounter;
+
   // define NFT struct
-   struct NFT {
+  struct NFT {
     uint256 tokenId;
     string tokenName;
     string tokenURI;
@@ -29,7 +32,8 @@ contract Marketplace is ERC721 {
     uint256 numberOfTransfers;
     bool forSale;
   }
- struct UserProfile {
+
+  struct UserProfile {
     string bannerHash;
     string imageHash;
     string name;
@@ -37,8 +41,11 @@ contract Marketplace is ERC721 {
     address user;
     string email;
   }
+
   // map user addresses to their profile
   mapping(address => UserProfile) public allProfiles;
+  mapping(uint256 => UserProfile) public allProfilesDetails;
+
   // check whether profile isset or not
   mapping(address => bool) public isProfileSet;
   // map NFT's token id to NFT
@@ -245,21 +252,26 @@ contract Marketplace is ERC721 {
     allNFTs[_tokenId] = nft;
   }
 
-function addUserProfile(string memory _bannerHash,string memory _imageHash, string memory _name,string memory _description,address _user,string memory _email) external {
-   // require caller of the function is not an empty address
-    require(msg.sender != address(0));
+  function addUserProfile(string memory _bannerHash,string memory _imageHash, string memory _name,string memory _description,address _user,string memory _email) external {
+    // require caller of the function is not an empty address
+      require(msg.sender != address(0));
 
-    UserProfile memory userprofile = allProfiles[_user];
-    
-    userprofile.bannerHash=_bannerHash;
-    userprofile.email=_email;
-    userprofile.imageHash=_imageHash;
-    userprofile.name=_name;
-    userprofile.description=_description;
-    userprofile.user=_user;
-    // add the user's address and it's profile to all allProfiles mapping
-    allProfiles[_user] = userprofile;
-    isProfileSet[_user] = true;
+      UserCounter ++;
+      
+      UserProfile memory userprofile = allProfiles[_user];
+      
+      userprofile.bannerHash=_bannerHash;
+      userprofile.email=_email;
+      userprofile.imageHash=_imageHash;
+      userprofile.name=_name;
+      userprofile.description=_description;
+      userprofile.user=_user;
+      // add the user's address and it's profile to all allProfiles mapping
+      
+      allProfilesDetails[UserCounter] = userprofile;
+      allProfiles[_user] = userprofile;
+      isProfileSet[_user] = true;
+    }
+
   }
 
-}
