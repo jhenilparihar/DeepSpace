@@ -1,9 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import "./Profile.css";
-import setting from "./setting.png";
 import share from "./share.png";
-import { Link } from "react-router-dom";
+import DisplayNFT from "./DisplayNFT";
 
 const ProfilePage = ({
   AllNFT,
@@ -11,29 +10,6 @@ const ProfilePage = ({
 }) => {
   const { address } = useParams();
   const currentProfile = allProfiles[address]
-  
-  function MintedTab() {
-    toggleActiveState();
-    document.querySelector(".link_button1").disabled = true;
-    document.querySelector(".link_button2").disabled = false;
-  }
-
-  function CollectionTab() {
-    document.querySelector(".link_button2").disabled = true;
-    document.querySelector(".link_button1").disabled = false;
-    toggleActiveState();
-  }
-
-  function toggleActiveState() {
-    document.querySelector(".link_button1").classList.toggle("active_");
-
-    document.querySelector(".underline_1").classList.toggle("underline");
-    document.querySelector(".underline_1").classList.toggle("option_underline");
-
-    document.querySelector(".link_button2").classList.toggle("active_");
-    document.querySelector(".underline_2").classList.toggle("option_underline");
-    document.querySelector(".underline_2").classList.toggle("underline");
-  }
 
   return (
     <>
@@ -65,22 +41,10 @@ const ProfilePage = ({
               <img class="icons" src={share} alt="" />
             </div>
           </div>
-          <div class="option">
-            <ul class="menu">
-              <li>
-                <button onClick={MintedTab} class="option_link link_button1 active_" href="#" >
-                  Minted Tokens
-                </button>
-                <div class="underline_1 underline"></div>
-              </li>
-              <li>
-                <button onClick={CollectionTab} class="option_link link_button2" href="#">
-                  My Collection
-                </button>
-                <div class="underline_2 option_underline"></div>
-              </li>
-            </ul>
-          </div>
+          <DisplayNFT 
+            AllNFT={AllNFT}
+            profileAddress={currentProfile.user}
+          />
         </div>
     </>
   );
