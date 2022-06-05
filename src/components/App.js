@@ -257,8 +257,8 @@ class App extends Component {
       previousTokenId = previousTokenId.toNumber();
       const tokenId = previousTokenId + 1;
       const tokenObject = {
-        tokenName: "BugEaters",
-        tokenSymbol: "NFT",
+        tokenName: "DeepSpace",
+        tokenSymbol: "DS",
         tokenId: `${tokenId}`,
         name: name,
         imageUrl: fileUrl,
