@@ -46,7 +46,7 @@ contract Marketplace is ERC721 {
 
   // map user addresses to their profile
   mapping(address => UserProfile) public allProfiles;
-  mapping(uint256 => UserProfile) public allProfilesDetails;
+  mapping(uint256 => address) public allAddress;
 
   // check whether profile isset or not
   mapping(address => bool) public isProfileSet;
@@ -60,7 +60,7 @@ contract Marketplace is ERC721 {
    mapping(string => bool) public tokenImageExists;
 
   // check if token URI exists
-  mapping(string => bool) public tokenURIExists;
+  // mapping(string => bool) public tokenURIExists;
 
   // initialize contract while deployment with contract's collection name and token
   constructor() ERC721("NFT Collection", "NFT") {
@@ -79,7 +79,7 @@ contract Marketplace is ERC721 {
     
     require(!_exists(NFTCounter));
 
-    require(!tokenURIExists[_tokenURI]);
+    // require(!tokenURIExists[_tokenURI]);
 
     require(!tokenNameExists[_name]);
 
@@ -90,7 +90,7 @@ contract Marketplace is ERC721 {
 
     _setTokenURI(NFTCounter, _tokenURI);
 
-    tokenURIExists[_tokenURI] = true;
+    // tokenURIExists[_tokenURI] = true;
 
     tokenImageExists[_imageHash] = true;
 
@@ -116,27 +116,27 @@ contract Marketplace is ERC721 {
 
   // get owner of the token
   function getTokenOwner(uint256 _tokenId) public view returns(address) {
-    address _tokenOwner = ownerOf(_tokenId);
-    return _tokenOwner;
+    address _to = ownerOf(_tokenId);
+    return _to;
   }
 
   // get metadata of the token
   function getTokenMetaData(uint _tokenId) public view returns(string memory) {
-    string memory tokenMetaData = tokenURI(_tokenId);
-    return tokenMetaData;
+    string memory tm = tokenURI(_tokenId);
+    return tm;
   }
 
   // get total number of tokens minted so far
   function getNumberOfTokensMinted() public view returns(uint256) {
-    uint256 totalNumberOfTokensMinted = totalSupply();
-    return totalNumberOfTokensMinted;
+    uint256 total = totalSupply();
+    return total;
   }
 
   // get total number of tokens owned by an address
-  function getTotalNumberOfTokensOwnedByAnAddress(address _owner) public view returns(uint256) {
-    uint256 totalNumberOfTokensOwned = balanceOf(_owner);
-    return totalNumberOfTokensOwned;
-  }
+  // function getTotalNumberOfTokensOwnedByAnAddress(address _owner) public view returns(uint256) {
+  //   uint256 totalNumberOfTokensOwned = balanceOf(_owner);
+  //   return totalNumberOfTokensOwned;
+  // }
 
   // check if the token already exists
   // function getTokenExists(uint256 _tokenId) public view returns(bool) {
@@ -154,13 +154,13 @@ contract Marketplace is ERC721 {
     require(_exists(_tokenId));
     
     // get the token's owner
-    address tokenOwner = ownerOf(_tokenId);
+    address owner = ownerOf(_tokenId);
     
     // token's owner should not be an zero address account
-    require(tokenOwner != address(0));
+    require(owner != address(0));
     
     // the one who wants to buy the token should not be the token's owner
-    require(tokenOwner != msg.sender);
+    require(owner != msg.sender);
     
     // get that token from all NFT mapping and create a memory of it defined as (struct => NFT)
     NFT memory nft = allNFTs[_tokenId];
@@ -172,7 +172,7 @@ contract Marketplace is ERC721 {
     require(nft.forSale);
     
     // transfer the token from owner to the caller of the function (buyer)
-    _transfer(tokenOwner, msg.sender, _tokenId);
+    _transfer(owner, msg.sender, _tokenId);
     
     // get owner of the token
     address payable sendTo = nft.currentOwner;
@@ -205,10 +205,10 @@ contract Marketplace is ERC721 {
     require(_exists(_tokenId));
     
     // get the token's owner
-    address tokenOwner = ownerOf(_tokenId);
+    address owner = ownerOf(_tokenId);
     
     // check that token's owner should be equal to the caller of the function
-    require(tokenOwner == msg.sender);
+    require(owner == msg.sender);
     
     // get that token from allNFT mapping and create a memory of it defined as (struct => NFT)
     NFT memory nft = allNFTs[_tokenId];
@@ -230,10 +230,10 @@ contract Marketplace is ERC721 {
     require(_exists(_tokenId));
     
     // get the token's owner
-    address tokenOwner = ownerOf(_tokenId);
+    address owner = ownerOf(_tokenId);
     
     // check that token's owner should be equal to the caller of the function
-    require(tokenOwner == msg.sender);
+    require(owner == msg.sender);
     
     // get that token from all NFT mapping and create a memory of it defined as (struct => NFT)
     NFT memory nft = allNFTs[_tokenId];
@@ -245,7 +245,7 @@ contract Marketplace is ERC721 {
     allNFTs[_tokenId] = nft;
   }
 
-  function addUserProfile(string memory _bannerHash,string memory _imageHash, string memory _name,string memory _description,address _user,string memory _email,string memory _timestamp) external {
+  function addUserProfile(string memory _bannerHash,string memory _imageHash, string memory _name,string memory _bio,address _user,string memory _email,string memory _timestamp) external {
     // require caller of the function is not an empty address
       require(msg.sender != address(0));
       
@@ -257,15 +257,15 @@ contract Marketplace is ERC721 {
       userprofile.email=_email;
       userprofile.imageHash=_imageHash;
       userprofile.name=_name;
-      userprofile.description=_description;
+      userprofile.description=_bio;
       userprofile.user=_user;
+
       // add the user's address and it's profile to all allProfiles mapping
       if (!isProfileSet[_user]){
         userprofile.timeOfRegistry = _timestamp;
+        allAddress[UserCounter] = _user;
       }
-    
 
-      allProfilesDetails[UserCounter] = userprofile;
       allProfiles[_user] = userprofile;
       isProfileSet[_user] = true;
     }
