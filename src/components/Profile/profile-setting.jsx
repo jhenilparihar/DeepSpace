@@ -53,7 +53,8 @@ class Settings extends Component {
       this.state.imageHash,
       this.state.name,
       this.state.description,
-      this.state.email
+      this.state.email,
+      "0"
     );
   };
 

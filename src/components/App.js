@@ -131,13 +131,25 @@ class App extends Component {
           .call();
 
         if (!isProfileSet) {
+          var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+          var currentTime = new Date()
+// returns the month (from 0 to 11)
+var month = months[currentTime.getMonth()];
+
+// returns the day of the month (from 1 to 31)
+var day = currentTime.getDate()
+
+// returns the year (four digits)
+var year = currentTime.getFullYear()
+const overAllDate=month+" "+day+" "+year
           console.log("See")
           await this.uploadProfile(
             "https://ipfs.infura.io/ipfs/QmeAcsFZfRd719RHMivPUitJpXzH54k8d3CXpmvmLZnF7A",
             "https://bafybeih5pgcobf6hpgf2pexmkhfsk55zr4dywrazgybk7u2fp6w4webkxu.ipfs.infura-ipfs.io/",
             "Unnamed",
             "No description",
-            "abc@gmail.com"
+            "abc@gmail.com",
+            overAllDate
           );
         }
 
@@ -186,7 +198,7 @@ class App extends Component {
     }
   };
 
-  uploadProfile = async (bannerHash, imageHash, name, description, email) => {
+  uploadProfile = async (bannerHash, imageHash, name, description, email,date) => {
     this.state.NFTContract.methods
       .addUserProfile(
         bannerHash,
@@ -194,7 +206,8 @@ class App extends Component {
         name,
         description,
         this.state.accountAddress,
-        email
+        email,
+        date
       )
       .send({ from: this.state.accountAddress })
       .on("confirmation", () => {

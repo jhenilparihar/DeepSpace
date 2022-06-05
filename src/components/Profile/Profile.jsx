@@ -27,7 +27,7 @@ const Profile = ({ currentProfile, AllNFT}) => {
                 "..." +
                 currentProfile.user.slice(currentProfile.user.length - 5)}
             </div>
-            <p>Joined May 2022</p>
+            <p>{currentProfile.timeOfRegistry}</p>
 
             <p>{currentProfile.description}</p>
           </div>

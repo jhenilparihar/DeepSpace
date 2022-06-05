@@ -41,6 +41,7 @@ contract Marketplace is ERC721 {
     string description;
     address user;
     string email;
+    string timeOfRegistry;
   }
 
   // map user addresses to their profile
@@ -71,32 +72,26 @@ contract Marketplace is ERC721 {
   function mintNFT(string memory _name, string memory _tokenURI, uint256 _price, string memory _imageHash) external {
 
     // check if thic fucntion caller is not an zero address account
-    require(msg.sender != address(0));
+    // require(msg.sender != address(0));
 
     NFTCounter ++;
     
-    // check if a token exists with the above token id => incremented counter
+    
     require(!_exists(NFTCounter));
 
-    // check if the token URI already exists or not
     require(!tokenURIExists[_tokenURI]);
 
-    // check if the token name already exists or not
     require(!tokenNameExists[_name]);
 
-    // check if the Image hash already exists or not
     require(!tokenImageExists[_imageHash]);
 
     // mint the token
     _mint(msg.sender, NFTCounter);
 
-    // set token URI (bind token id with the passed in token URI)
     _setTokenURI(NFTCounter, _tokenURI);
 
-    // make passed token URI as exists
     tokenURIExists[_tokenURI] = true;
 
-    // make passed token Image as exists
     tokenImageExists[_imageHash] = true;
 
     // make token name passed as exists
@@ -144,10 +139,10 @@ contract Marketplace is ERC721 {
   }
 
   // check if the token already exists
-  function getTokenExists(uint256 _tokenId) public view returns(bool) {
-    bool tokenExists = _exists(_tokenId);
-    return tokenExists;
-  }
+  // function getTokenExists(uint256 _tokenId) public view returns(bool) {
+  //   bool tokenExists = _exists(_tokenId);
+  //   return tokenExists;
+  // }
 
   // by a token by passing in the token's id
   function buyToken(uint256 _tokenId) public payable {
@@ -244,20 +239,16 @@ contract Marketplace is ERC721 {
     NFT memory nft = allNFTs[_tokenId];
     
     // if token's forSale is false make it true and vice versa
-    if(nft.forSale) {
-      nft.forSale = false;
-    } else {
-      nft.forSale = true;
-    }
+    if(nft.forSale) { nft.forSale = false; } else {nft.forSale = true;}
     
     // set and update that token in the mapping
     allNFTs[_tokenId] = nft;
   }
 
-  function addUserProfile(string memory _bannerHash,string memory _imageHash, string memory _name,string memory _description,address _user,string memory _email) external {
+  function addUserProfile(string memory _bannerHash,string memory _imageHash, string memory _name,string memory _description,address _user,string memory _email,string memory _timestamp) external {
     // require caller of the function is not an empty address
       require(msg.sender != address(0));
-
+      
       UserCounter ++;
       
       UserProfile memory userprofile = allProfiles[_user];
@@ -269,7 +260,11 @@ contract Marketplace is ERC721 {
       userprofile.description=_description;
       userprofile.user=_user;
       // add the user's address and it's profile to all allProfiles mapping
-      
+      if (!isProfileSet[_user]){
+        userprofile.timeOfRegistry = _timestamp;
+      }
+    
+
       allProfilesDetails[UserCounter] = userprofile;
       allProfiles[_user] = userprofile;
       isProfileSet[_user] = true;

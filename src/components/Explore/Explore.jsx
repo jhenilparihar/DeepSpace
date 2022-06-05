@@ -32,21 +32,20 @@ const Explore = ({ AllNFT, accountAddress, totalTokensMinted }) => {
     filter_op.classList.toggle("filter-op1");
   }
   function filter1(){
-//     console.log(AllNFT);
-//     AllNFT.sort(function(a,b){
-//      a= window.web3.utils.fromWei(
-//             a.price.toString()
-//           );
-//           b= window.web3.utils.fromWei(
-//             b.price.toString()
-//           );
-//       return b - a;
-//     });
-//     console.log(NFTLIST);
+    console.log(AllNFT);
+    AllNFT.sort(function(a,b){
+     a= window.web3.utils.fromWei(
+            a.price.toString()
+          );
+          b= window.web3.utils.fromWei(
+            b.price.toString()
+          );
+      return b - a;
+    });
+    console.log(NFTLIST);
 
-//  setnfts(AllNFT);
-const a=AllNFT;
-console.log(typeof(a));
+ setnfts(AllNFT);
+
 
       }
 
