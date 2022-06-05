@@ -237,7 +237,7 @@ class App extends Component {
     }
   };
 
-  mintMyNFT = async (fileUrl, name, tokenPrice) => {
+  mintMyNFT = async (fileUrl, name, tokenPrice, description) => {
     this.setState({ loading: true });
 
     console.log(fileUrl);
@@ -262,6 +262,7 @@ class App extends Component {
         tokenId: `${tokenId}`,
         name: name,
         imageUrl: fileUrl,
+        description: description
       };
       const cid = await ipfs.add(JSON.stringify(tokenObject));
       let tokenURI = `https://ipfs.infura.io/ipfs/${cid.path}`;
