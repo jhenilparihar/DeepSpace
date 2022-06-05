@@ -30,9 +30,7 @@ class NFTDetails extends Component {
                 <div className="row nft-image-div">
                   <img
                     src={
-                      this.props.NFT.metaData !== undefined
-                        ? this.props.NFT.metaData.imageUrl
-                        : ""
+                      this.props.NFT.tokenImage
                     }
                     alt=""
                   ></img>
@@ -45,11 +43,11 @@ class NFTDetails extends Component {
                 </div>
                 <div className="row price_div">
                   <div className="row div_content_text description_content">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
+                    {
+                    this.props.NFT.metaData !== undefined
+                        ? this.props.NFT.metaData.description
+                        : <em>No Description</em>
+                    }
                   </div>
                 </div>
               </div>
