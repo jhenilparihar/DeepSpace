@@ -114,10 +114,13 @@
 }
 .share__Icon {
   right: 85px;
-}
-.share__Icon {
   border-bottom-right-radius: 0px;
   border-top-right-radius: 0px;
+}
+.other_profile_page {
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  right: 50px;
 }
 .settings__Icon {
   border-bottom-left-radius: 0px;

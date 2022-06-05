@@ -61,13 +61,8 @@ const ProfilePage = ({
                 <p>{currentProfile.description}</p>
               </div>
             </div>
-            <div class="share__Icon">
+            <div class="share__Icon other_profile_page">
               <img class="icons" src={share} alt="" />
-            </div>
-            <div class="settings__Icon">
-              <Link to="/profile/settings">
-                <img class="icons" src={setting} alt="" />
-              </Link>
             </div>
           </div>
           <div class="option">
