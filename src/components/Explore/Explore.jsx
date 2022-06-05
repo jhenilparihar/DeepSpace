@@ -246,9 +246,7 @@ console.log(typeof(a));
                               <img
                                 class="buy-nft-image"
                                 src={
-                                  NFT.metaData !== undefined
-                                    ? NFT.metaData.imageUrl
-                                    : ""
+                                  NFT.tokenImage
                                 }
                                 alt=""
                               />

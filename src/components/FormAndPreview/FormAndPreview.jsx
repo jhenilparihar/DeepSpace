@@ -15,6 +15,7 @@ class FormAndPreview extends Component {
       NFTName: "",
       NFTPrice: "",
       fileUrl:"",
+      description:"",
       imageIsUpload: false,
     };
   }
@@ -50,7 +51,8 @@ class FormAndPreview extends Component {
     this.props.mintMyNFT(
       this.state.fileUrl,
       this.state.NFTName,
-      this.state.NFTPrice
+      this.state.NFTPrice,
+      this.state.description
     );
   };
 
@@ -130,9 +132,9 @@ class FormAndPreview extends Component {
                     rows="8"
                     cols="60"
                     placeholder="Share about your NFT."
-                    // onChange={(e) =>
-                    //   this.setState({ NFTPrice: e.target.value })
-                    // }
+                    onChange={(e) =>
+                      this.setState({ description: e.target.value })
+                    }
                   ></textarea>
               </div>
               <hr></hr>
