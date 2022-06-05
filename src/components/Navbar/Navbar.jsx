@@ -56,7 +56,7 @@ const Navbar = ({ accountAddress, accountBalance, profileImage }) => {
             <li><Link to="/stats"><h1 class="navbar-text">Stats</h1></Link></li>   
             <li><Link to="/mint"><h1 class="navbar-text">Create</h1></Link></li>
             <li><Link to="/queries"><h1 class="navbar-text">Queries</h1></Link></li>
-            <li><Link to={"/profile/"+ accountAddress}><img class="avatar-style" src={profileImage} alt="" /></Link></li>
+            <li><Link to={"/profile"}><img class="avatar-style" src={profileImage} alt="" /></Link></li>
             <li><img class='wallet-item' src={walletIcon} alt="" /></li>
             <input class="wallet-checkbox" id="wallet-checkbox" type="checkbox" onChange={DisplayAccount} />
           </ul>
