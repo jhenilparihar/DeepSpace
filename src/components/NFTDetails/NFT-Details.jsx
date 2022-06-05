@@ -18,7 +18,6 @@ class NFTDetails extends Component {
     this.props.changeTokenPrice(tokenId, newPrice);
   };
   render() {
-    console.log(this.props.NFT);
     return (
       <>
         <div class="details-main">
