@@ -6,7 +6,7 @@ import Web3 from "web3";
 import Marketplace from "../abis/Marketplace.json";
 
 import FormAndPreview from "../components/FormAndPreview/FormAndPreview";
-import Explore from "./Explore/Explore";
+import Explore from "./Explore/Marketplace";
 import Home from "./Home/Home";
 import ContractNotDeployed from "./ContractNotDeployed/ContractNotDeployed";
 import ConnectToMetamask from "./ConnectMetamask/ConnectToMetamask";

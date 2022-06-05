@@ -19,36 +19,39 @@ class Marketplace extends Component {
   }
 
   componentDidMount() {
-    const a = []
-    let max = 0
-    let min = this.props.AllNFT[0].price;
-    this.props.AllNFT.forEach((NFT) => {
-        if (NFT.price > max) {
-            max = NFT.price;
-        }
-        else if (NFT.price < min) {
-            min = NFT.price;
-        }
-        a.push(NFT)
-        
-    });
-
-    max = window.web3.utils.fromWei(
-        max.toString()
-      )
-    min = window.web3.utils.fromWei(
-        min.toString()
-      )
-    a.reverse()
-    this.setState({
-        NFTToDisplay : a.slice(),  
-    });
-    max = parseInt(max, 10);
-    min = parseInt(min, 10);
-
-    this.setState({allNFT : a.slice()});
-    this.setState({minPrice : min});
-    this.setState({maxPrice : max});
+    if (this.props.AllNFT.length !== 0) {
+      const a = []
+      let max = 0
+      let min = this.props.AllNFT[0].price;
+      this.props.AllNFT.forEach((NFT) => {
+          if (NFT.price > max) {
+              max = NFT.price;
+          }
+          else if (NFT.price < min) {
+              min = NFT.price;
+          }
+          a.push(NFT)
+          
+      });
+  
+      max = window.web3.utils.fromWei(
+          max.toString()
+        )
+      min = window.web3.utils.fromWei(
+          min.toString()
+        )
+      a.reverse()
+      this.setState({
+          NFTToDisplay : a.slice(),  
+      });
+      max = parseInt(max, 10);
+      min = parseInt(min, 10);
+  
+      this.setState({allNFT : a.slice()});
+      this.setState({minPrice : min});
+      this.setState({maxPrice : max});
+    }
+   
 }
 
   newestFirst = () => {
@@ -57,10 +60,32 @@ class Marketplace extends Component {
   }
 
   setPriceRange = () => {
+    const a = []
     let min = document.querySelector("#min").value;
     let max = document.querySelector("#max").value;
     
+    // console.log(min,max);
+    if(min==null && max != null){
+      this.setState({maxPrice : max});
+    }
+    else if(min!=null && max == null){
+      this.setState({minPrice : min});
+    }
+    else{
+      this.setState({minPrice : min});
+      this.setState({maxPrice : max});
+    }
     
+    this.props.AllNFT.forEach((NFT) => {
+      const p=window.web3.utils.fromWei(NFT.price.toString())
+      if (  p<= this.state.maxPrice && p >= this.state.minPrice) {
+        a.push(NFT)
+      }
+    });
+    this.setState({
+      NFTToDisplay : a.slice(),  
+  });
+    console.log("all", a);
   }
 
   expand = () => {
