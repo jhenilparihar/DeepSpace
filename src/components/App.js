@@ -12,9 +12,10 @@ import ContractNotDeployed from "./ContractNotDeployed/ContractNotDeployed";
 import ConnectToMetamask from "./ConnectMetamask/ConnectToMetamask";
 import Loading from "./Loading/Loading";
 import Navbar from "./Navbar/Navbar";
-import MyNFTs from "./MyNFTs/MyNFTs";
+// import MyNFTs from "./MyNFTs/MyNFTs";
 import Queries from "./Queries/Queries";
-import Profile from "./Profile/Profile";
+import Profile from "./Profile/ProfilePage";
+import UserProfile from './Profile/Profile'
 import Settings from "./Profile/profile-setting";
 import NoPage from "./pages/NoPage/NoPage";
 import NFTDetails from "./NFTDetails/NFTDetail";
@@ -45,6 +46,7 @@ class App extends Component {
       imageHash: "",
       lastMintTime: null,
       currentProfile: "",
+      allUserProfile: {}
     };
   }
 
@@ -154,7 +156,21 @@ class App extends Component {
         const cp = await NFTContract.methods
           .allProfiles(this.state.accountAddress)
           .call();
+        
         this.setState({ currentProfile: cp });
+
+        const ProfileCounter = await NFTContract.methods.UserCounter().call();
+        
+        console.log(ProfileCounter)
+
+        for (var i = 1; i <= ProfileCounter; i++) {
+          const profile = await NFTContract.methods.allProfilesDetails(i).call();
+          // this.setState({
+          //   allUserProfile: [...this.state.allUserProfile, profile],
+          // });
+          const address = profile.user
+          this.state.allUserProfile[address] = profile
+        }
 
         totalTokensMinted = totalTokensMinted.toNumber();
         this.setState({ totalTokensMinted });
@@ -187,6 +203,14 @@ class App extends Component {
         window.location.reload();
       });
   };
+
+  getProfileDetails = async (address) => {
+    const cp = await this.state.NFTContract.methods
+    .allProfiles(address)
+    .call();
+    
+    return cp;
+  }
 
   connectToMetamask = async () => {
     await window.ethereum.enable();
@@ -345,9 +369,19 @@ class App extends Component {
                     }
                   />
                   <Route
-                    path="profile"
+                    path="profile/"
                     element={
-                      <Profile currentProfile={this.state.currentProfile} />
+                      <UserProfile
+                       AllNFT={this.state.NFTs}
+                       currentProfile={this.state.currentProfile} />
+                    }
+                  />
+                  <Route
+                    path="profile/:address"
+                    element={
+                      <Profile
+                       AllNFT={this.state.NFTs}
+                       allProfiles={this.state.allUserProfile} />
                     }
                   />
                   <Route
