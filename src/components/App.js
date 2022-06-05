@@ -19,6 +19,7 @@ import UserProfile from './Profile/Profile'
 import Settings from "./Profile/profile-setting";
 import NoPage from "./pages/NoPage/NoPage";
 import NFTDetails from "./NFTDetails/NFTDetail";
+import Marketplace_ from "./Explore/Marketplace";
 
 const ipfsClient = require("ipfs-http-client");
 const ipfs = ipfsClient({
@@ -360,7 +361,7 @@ const overAllDate=month+" "+day+" "+year
                   <Route
                     path="marketplace"
                     element={
-                      <Explore
+                      <Marketplace_
                         accountAddress={this.state.accountAddress}
                         AllNFT={this.state.NFTs}
                         totalTokensMinted={this.state.totalTokensMinted}
