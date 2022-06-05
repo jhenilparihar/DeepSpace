@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import List from "./List";
 import eth from "./eth.svg";
 import filter from "./filter.svg";
 import open from "./open.svg";
@@ -8,7 +9,11 @@ import { Link } from "react-router-dom";
 
 const Explore = ({ AllNFT, accountAddress, totalTokensMinted }) => {
   const [loading, setLoading] = useState(false);
-
+  const [NFTLIST, setnfts] = useState(AllNFT);
+  const [MINPrice, setminprice] = useState(0);
+  const [MAXPrice, setmaxprice] = useState(0);
+  // const min=0;
+  // const max=0;
   useEffect(() => {
     if (AllNFT.length !== 0) {
       if (AllNFT[0].metaData !== undefined) {
@@ -26,6 +31,60 @@ const Explore = ({ AllNFT, accountAddress, totalTokensMinted }) => {
     filter.classList.toggle("filter1");
     filter_op.classList.toggle("filter-op1");
   }
+  function filter1(){
+//     console.log(AllNFT);
+//     AllNFT.sort(function(a,b){
+//      a= window.web3.utils.fromWei(
+//             a.price.toString()
+//           );
+//           b= window.web3.utils.fromWei(
+//             b.price.toString()
+//           );
+//       return b - a;
+//     });
+//     console.log(NFTLIST);
+
+//  setnfts(AllNFT);
+const a=AllNFT;
+console.log(typeof(a));
+
+      }
+
+ function filter2(){
+  //  console.log(MINPrice);
+  //  console.log(MAXPrice);
+  // const min= MINPrice;
+  // const max=MAXPrice;
+      // AllNFT = AllNFT.filter(
+      //   (item)=>
+      //     window.web3.utils.fromWei(item.price.toString()) >= MINPrice && window.web3.utils.fromWei(item.price.toString()) <= MAXPrice
+        
+      // );
+      // setnfts(AllNFT);
+      // console.log(NFTLIST);
+     const dynamo=[];
+    //   AllNFT.map((NFT) =>
+    //   {if(window.web3.utils.fromWei(NFT.price.toString()) >= min && window.web3.utils.fromWei(NFT.price.toString()) <= max){
+    //     console.log("yes");
+    //     dynamo.push(NFT);
+    //   }
+    // });
+    for (let i = 0; i < AllNFT.length; i++) {
+      // console.log("no");
+      const p = window.web3.utils.fromWei(AllNFT[i].price.toString())
+      // console.log(p);
+      if(p >= MINPrice && p <= MAXPrice){
+        // dynamo.push(AllNFT[i]);
+        // console.log("yes");
+        console.log("yes");
+      }else{
+        continue;
+      }
+    }
+    console.log(dynamo);
+    // setnfts(dynamo);
+      }
+
 
   function DropDown() {
     const dropdowns = document.querySelectorAll(".dropdown");
@@ -114,24 +173,32 @@ const Explore = ({ AllNFT, accountAddress, totalTokensMinted }) => {
               <p>Price</p>
               <div className="status-options">
                 <div className="flex-div">
-                  <form action="">
+                  <form action="" >
                     <div className="part1">
                       <input
                         className="stat"
                         typeof="number"
                         placeholder="Min"
+                        required
+                        onChange={(e) =>
+                          setminprice(e.target.value)
+                        }
                       ></input>
                       <p>to</p>
                       <input
                         className="stat"
                         typeof="number"
                         placeholder="Max"
+                        required
+                        onChange={(e) =>
+                          setmaxprice(e.target.value)
+                        }
                       ></input>
                     </div>
                     <div className="part2">
-                      <button className="stat" typeof="submit">
+                      <div className="stat" typeof="button" onClick={filter2}>
                         Apply
-                      </button>
+                      </div>
                     </div>
                   </form>
                 </div>
@@ -153,8 +220,8 @@ const Explore = ({ AllNFT, accountAddress, totalTokensMinted }) => {
                 </div>
                 <ul class="explore-menu">
                   <li class="active">Facebook</li>
-                  <li>Recently used</li>
-                  <li>Recently created</li>
+                  <li onClick={filter1}>Recently used</li>
+                  <li onClick={filter2}>Recently created</li>
                   <li>Recently sold</li>
                   <li>Price: Low to High</li>
                   <li>Price: High to Low</li>
@@ -163,10 +230,10 @@ const Explore = ({ AllNFT, accountAddress, totalTokensMinted }) => {
               </div>
             </div>
           </div>
-          <div className="row nft-card-row">
+          {/* <div className="row nft-card-row">
             <div className="container">
               <div class="row nft-container">
-                {AllNFT.map((NFT) => {
+                {NFTLIST.map((NFT) => {
                   return (
                     <div
                       key={NFT.tokenId.toNumber()}
@@ -220,7 +287,8 @@ const Explore = ({ AllNFT, accountAddress, totalTokensMinted }) => {
                 })}
               </div>
             </div>
-          </div>
+          </div> */}
+          <List NFTLIST={NFTLIST} />
         </div>
       </div>
     </>
