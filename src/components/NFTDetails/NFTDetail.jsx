@@ -15,7 +15,7 @@ const NFTDetail = ({
   let NFT = AllNFT[tokenId]
   let currentOwnerName = allProfile[NFT.currentOwner].name
   let mintedByName = allProfile[NFT.mintedBy].name
-  
+  let mintTime = allProfile[NFT.mintedBy].mintTime
   return (
     <>
       <NFTDetails
@@ -26,6 +26,7 @@ const NFTDetail = ({
         buyNFT={buyNFT}
         currentOwnerName={currentOwnerName}
         mintedByName={mintedByName}
+        // mintTime={mintTime}
       />
     </>
   );

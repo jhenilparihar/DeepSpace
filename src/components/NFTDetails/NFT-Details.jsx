@@ -259,6 +259,20 @@ class NFTDetails extends Component {
                         </a>
                       </div>
                     </div>
+                    <div className="row div_content_text">
+                      <div className="col-6">MintTime</div>
+                      <div className="col-3">
+                        <a >
+                          {
+                          this.props.NFT.mintTime 
+                            // "..." +
+                            // this.props.NFT.tokenURI.slice(
+                            //   this.props.NFT.tokenURI.length - 5
+                            // )
+                            }
+                        </a>
+                      </div>
+                    </div>
 
                     <div className="row "></div>
                   </div>

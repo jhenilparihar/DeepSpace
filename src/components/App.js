@@ -89,7 +89,9 @@ class App extends Component {
       }
     }, 1000);
   };
-
+  dateTime = async () => {
+    
+  }
   loadWeb3 = async () => {
     if (window.ethereum) {
       window.web3 = new Web3(window.ethereum);
@@ -252,6 +254,10 @@ const overAllDate=month+" "+day+" "+year
   };
 
   mintMyNFT = async (fileUrl, name, tokenPrice, description) => {
+  var today = new Date();
+  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  var dateTime = date+' '+time;
     this.setState({ loading: true });
 
     console.log(fileUrl);
@@ -282,7 +288,7 @@ const overAllDate=month+" "+day+" "+year
       let tokenURI = `https://ipfs.infura.io/ipfs/${cid.path}`;
       const price = window.web3.utils.toWei(tokenPrice.toString(), "ether");
       this.state.NFTContract.methods
-        .mintNFT(name, tokenURI, price, fileUrl)
+        .mintNFT(name, tokenURI, price, fileUrl,dateTime)
         .send({ from: this.state.accountAddress })
         .on("confirmation", () => {
           localStorage.setItem(this.state.accountAddress, new Date().getTime());

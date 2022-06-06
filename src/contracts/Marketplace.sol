@@ -32,6 +32,7 @@ contract Marketplace is ERC721 {
     uint256 price;
     uint256 numberOfTransfers;
     bool forSale;
+    string mintTime;
   }
 
   struct UserProfile {
@@ -69,7 +70,7 @@ contract Marketplace is ERC721 {
   }
 
   // mint a new NFT
-  function mintNFT(string memory _name, string memory _tokenURI, uint256 _price, string memory _imageHash) external {
+  function mintNFT(string memory _name, string memory _tokenURI, uint256 _price, string memory _imageHash,string memory _mintTime) external {
 
     // check if thic fucntion caller is not an zero address account
     // require(msg.sender != address(0));
@@ -108,7 +109,9 @@ contract Marketplace is ERC721 {
       address(0),
       _price,
       0,
-      false);
+      false,
+      _mintTime
+    );
     
     // add the token id and it's nft to allNFT mapping
     allNFTs[NFTCounter] = newNFT;
