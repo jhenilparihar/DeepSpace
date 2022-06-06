@@ -84,7 +84,8 @@ class NFTDetails extends Component {
                 </div>
                 <div className="row price_row">
                   <div className="row created_on">
-                    Sale ends June 14, 2022 at 9:16pm GMT+5:30
+                    {/* Sale ends June 14, 2022 at 9:16pm GMT+5:30 */}
+                    Created on { this.props.NFT.mintTime}
                   </div>
                   <div className="row price_div">
                     <div className="row price-header">Current price</div>

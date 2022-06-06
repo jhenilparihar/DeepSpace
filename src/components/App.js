@@ -254,10 +254,19 @@ const overAllDate=month+" "+day+" "+year
   };
 
   mintMyNFT = async (fileUrl, name, tokenPrice, description) => {
-  var today = new Date();
-  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  var dateTime = date+' '+time;
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var currentTime = new Date()
+    // returns the month (from 0 to 11)
+    var month = months[currentTime.getMonth()];
+    
+    // returns the day of the month (from 1 to 31)
+    var day = currentTime.getDate()
+    
+    // returns the year (four digits)
+    var year = currentTime.getFullYear()
+    const overAllDate=month+" "+day+", "+year
+  var time = currentTime.getHours() + ":" + currentTime.getMinutes() + ":" + currentTime.getSeconds();
+  var dateTime = overAllDate+' at '+time;
     this.setState({ loading: true });
 
     console.log(fileUrl);
