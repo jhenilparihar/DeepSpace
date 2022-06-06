@@ -11,12 +11,11 @@ import ContractNotDeployed from "./ContractNotDeployed/ContractNotDeployed";
 import ConnectToMetamask from "./ConnectMetamask/ConnectToMetamask";
 import Loading from "./Loading/Loading";
 import Navbar from "./Navbar/Navbar";
-// import MyNFTs from "./MyNFTs/MyNFTs";
 import Queries from "./Queries/Queries";
 import Profile from "./Profile/ProfilePage";
 import UserProfile from './Profile/Profile'
 import Settings from "./Profile/profile-setting";
-import NoPage from "./pages/NoPage/NoPage";
+import NoPage from "./NoPage/NoPage";
 import NFTDetails from "./NFTDetails/NFTDetail";
 import Marketplace_ from "./Explore/Marketplace";
 
