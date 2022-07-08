@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet, Link } from "react-router-dom";
 
 import "./assets/main.css";
-import logo from "./assets/opensea.svg";
+import logo from "./assets/space.png";
 import walletIcon from "./assets/wallet.png";
 import eth from "./assets/eth.svg";
 import search from "./search.svg";
