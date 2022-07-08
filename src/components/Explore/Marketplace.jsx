@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import eth from "./eth.svg";
-import filter from "./filter.svg";
-import open from "./open.svg";
-import "./explore.css";
-import Loading from "../Loading/Loading";
 import { Link } from "react-router-dom";
+
+import eth from "./assets/eth.svg";
+import filter from "./assets/filter.svg";
+import open from "./assets/open.svg";
+import "./assets/explore.css";
+import Loading from "../Loading/Loading";
 
 class Marketplace extends Component {
   constructor(props) {
@@ -14,79 +15,70 @@ class Marketplace extends Component {
       NFTToDisplay: [],
       allNFT: [],
       minPrice: 0,
-      maxPrice: 0
+      maxPrice: 0,
     };
   }
 
   componentDidMount() {
     if (this.props.AllNFT.length !== 0) {
-      const a = []
-      let max = 0
+      const a = [];
+      let max = 0;
       let min = this.props.AllNFT[0].price;
       this.props.AllNFT.forEach((NFT) => {
-          if (NFT.price > max) {
-              max = NFT.price;
-          }
-          else if (NFT.price < min) {
-              min = NFT.price;
-          }
-          a.push(NFT)
-          
+        if (NFT.price > max) {
+          max = NFT.price;
+        } else if (NFT.price < min) {
+          min = NFT.price;
+        }
+        a.push(NFT);
       });
-  
-      max = window.web3.utils.fromWei(
-          max.toString()
-        )
-      min = window.web3.utils.fromWei(
-          min.toString()
-        )
-      a.reverse()
+
+      max = window.web3.utils.fromWei(max.toString());
+      min = window.web3.utils.fromWei(min.toString());
+      a.reverse();
       this.setState({
-          NFTToDisplay : a.slice(),  
+        NFTToDisplay: a.slice(),
       });
       max = parseInt(max, 10);
       min = parseInt(min, 10);
-  
-      this.setState({allNFT : a.slice()});
-      this.setState({minPrice : min});
-      this.setState({maxPrice : max});
-    }
-   
-}
 
-  newestFirst = () => {
-    this.setState({ NFTToDisplay: []});
-    this.setState({ NFTToDisplay: this.state.allNFT.reverse() });
+      this.setState({ allNFT: a.slice() });
+      this.setState({ minPrice: min });
+      this.setState({ maxPrice: max });
+    }
   }
 
+  newestFirst = () => {
+    this.setState({ NFTToDisplay: [] });
+    this.setState({ NFTToDisplay: this.state.allNFT.reverse() });
+  };
+
   setPriceRange = () => {
-    const a = []
+    const a = [];
     let min = document.querySelector("#min").value;
     let max = document.querySelector("#max").value;
-    
+
     // console.log(min,max);
-    if(min==null && max != null){
-      this.setState({maxPrice : max});
+    if (min == null && max != null) {
+      this.setState({ maxPrice: max });
+    } else if (min != null && max == null) {
+      this.setState({ minPrice: min });
+    } else {
+      this.setState({ minPrice: min });
+      this.setState({ maxPrice: max });
     }
-    else if(min!=null && max == null){
-      this.setState({minPrice : min});
-    }
-    else{
-      this.setState({minPrice : min});
-      this.setState({maxPrice : max});
-    }
-    
+
     this.props.AllNFT.forEach((NFT) => {
-      const p=window.web3.utils.fromWei(NFT.price.toString())
-      if (  p<= this.state.maxPrice && p >= this.state.minPrice) {
-        a.push(NFT)
+      const p = window.web3.utils.fromWei(NFT.price.toString());
+      if (p <= this.state.maxPrice && p >= this.state.minPrice) {
+        a.push(NFT);
       }
     });
     this.setState({
-      NFTToDisplay : a.slice(),  
-  });
+      NFTToDisplay: a.slice(),
+    });
     console.log("all", a);
-  }
+  };
 
   expand = () => {
     const slider = document.querySelector(".slider1");
@@ -136,15 +128,15 @@ class Marketplace extends Component {
   };
 
   getUserName = (address) => {
-    const Profile = this.props.allProfile[address]
+    const Profile = this.props.allProfile[address];
     return Profile.name;
-  }
+  };
 
   render() {
     //   console.log(this.state.NFTToDisplay[0].tokenName)
-    console.log(this.state.minPrice)
-    console.log(this.state.maxPrice)
-    
+    console.log(this.state.minPrice);
+    console.log(this.state.maxPrice);
+
     return (
       <>
         <div class="outer-container">
@@ -178,26 +170,26 @@ class Marketplace extends Component {
                 <p>Price</p>
                 <div className="status-options">
                   <div className="flex-div">
-                      <div className="part1">
-                        <input
-                          className="stat"
-                          id="min"
-                          typeof="number"
-                          placeholder="Min"
-                        ></input>
-                        <p>to</p>
-                        <input
-                          id="max"
-                          className="stat"
-                          typeof="number"
-                          placeholder="Max"
-                        ></input>
-                      </div>
-                      <div className="part2">
-                        <button className="stat" onClick={this.setPriceRange}>
-                          Apply
-                        </button>
-                      </div>
+                    <div className="part1">
+                      <input
+                        className="stat"
+                        id="min"
+                        typeof="number"
+                        placeholder="Min"
+                      ></input>
+                      <p>to</p>
+                      <input
+                        id="max"
+                        className="stat"
+                        typeof="number"
+                        placeholder="Max"
+                      ></input>
+                    </div>
+                    <div className="part2">
+                      <button className="stat" onClick={this.setPriceRange}>
+                        Apply
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -230,61 +222,58 @@ class Marketplace extends Component {
             <div className="row nft-card-row">
               <div className="container">
                 <div class="row nft-container">
-                    {this.state.NFTToDisplay.length !== 0 ?
-                    (
-                        <>
-                        {this.state.NFTToDisplay.map((NFT) => {
-                          return (
-                            <div
-                              key={NFT.tokenId.toNumber()}
-                              class="col-4 col-lg-4 col-md-6 col-sm-1 align-items-center nft_card"
+                  {this.state.NFTToDisplay.length !== 0 ? (
+                    <>
+                      {this.state.NFTToDisplay.map((NFT) => {
+                        return (
+                          <div
+                            key={NFT.tokenId.toNumber()}
+                            class="col-4 col-lg-4 col-md-6 col-sm-1 align-items-center nft_card"
+                          >
+                            <Link
+                              to={"/assets/details/" + NFT.tokenId.toNumber()}
                             >
-                              <Link to={"/assets/details/" + NFT.tokenId.toNumber()}>
-                                <div className="details-div">
-                                  <div class="inner-div">
-                                    {!this.state.loading ? (
-                                      <img
-                                        class="buy-nft-image"
-                                        src={NFT.tokenImage}
-                                        alt=""
-                                      />
-                                    ) : (
-                                      <Loading />
-                                    )}
-                                  </div>
-                                  <div class="row nft-details">
-                                    <div class="col nft-name-explore">
-                                      <p class="n">
-                                          <Link to={"/profile/" + NFT.currentOwner}>
-                                        {this.getUserName(NFT.currentOwner)}
-                                          </Link>
-                                      </p>
-                                      <p class="nft-owner-name-explore">
-                                        {NFT.tokenName}
-                                      </p>
-                                    </div>
-                                    <div class="col nft-price-explore">
-                                      <p class="n">Price</p>
-                                      <p>
-                                        <img src={eth} alt="" class="ether-img" />{" "}
-                                        {window.web3.utils.fromWei(
-                                          NFT.price.toString()
-                                        )}{" "}
-                                      </p>
-                                    </div>
-                                  </div>
-                                  <div class="row buy-details"></div>
+                              <div className="details-div">
+                                <div class="inner-div">
+                                  {!this.state.loading ? (
+                                    <img
+                                      class="buy-nft-image"
+                                      src={NFT.tokenImage}
+                                      alt=""
+                                    />
+                                  ) : (
+                                    <Loading />
+                                  )}
                                 </div>
-                              </Link>
-                            </div>
-                          );
-                        })}
-                        </>
-                    ) : (
-                        null
-                    )
-                    }
-                  
+                                <div class="row nft-details">
+                                  <div class="col nft-name-explore">
+                                    <p class="n">
+                                      <Link to={"/profile/" + NFT.currentOwner}>
+                                        {this.getUserName(NFT.currentOwner)}
+                                      </Link>
+                                    </p>
+                                    <p class="nft-owner-name-explore">
+                                      {NFT.tokenName}
+                                    </p>
+                                  </div>
+                                  <div class="col nft-price-explore">
+                                    <p class="n">Price</p>
+                                    <p>
+                                      <img src={eth} alt="" class="ether-img" />{" "}
+                                      {window.web3.utils.fromWei(
+                                        NFT.price.toString()
+                                      )}{" "}
+                                    </p>
+                                  </div>
+                                </div>
+                                <div class="row buy-details"></div>
+                              </div>
+                            </Link>
+                          </div>
+                        );
+                      })}
+                    </>
+                  ) : null}
                 </div>
               </div>
             </div>
