@@ -8,14 +8,14 @@ const NFTDetail = ({
   changeTokenPrice,
   toggleForSale,
   buyNFT,
-  allProfile
+  allProfile,
 }) => {
   const { id } = useParams();
   let tokenId = parseInt(id, 10) - 1;
-  let NFT = AllNFT[tokenId]
-  let currentOwnerName = allProfile[NFT.currentOwner].name
-  let mintedByName = allProfile[NFT.mintedBy].name
-  let mintTime = allProfile[NFT.mintedBy].mintTime
+  let NFT = AllNFT[tokenId];
+  let currentOwnerName = allProfile[NFT.currentOwner].name;
+  let mintedByName = allProfile[NFT.mintedBy].name;
+  let mintTime = allProfile[NFT.mintedBy].mintTime;
   return (
     <>
       <NFTDetails
@@ -26,7 +26,7 @@ const NFTDetail = ({
         buyNFT={buyNFT}
         currentOwnerName={currentOwnerName}
         mintedByName={mintedByName}
-        // mintTime={mintTime}
+        mintTime={mintTime}
       />
     </>
   );

@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
-import "./Profile.css";
-import setting from "./setting.png";
-import share from "./share.png";
 import React from "react";
+import { Link } from "react-router-dom";
+
+import "./assets/Profile.css";
+import setting from "./assets/setting.png";
+import share from "./assets/share.png";
 import DisplayNFT from "./DisplayNFT";
 
-const Profile = ({ currentProfile, AllNFT}) => {
-  
+const Profile = ({ currentProfile, AllNFT }) => {
   return (
     <div class="main">
       <div class="upper">
@@ -41,10 +41,7 @@ const Profile = ({ currentProfile, AllNFT}) => {
           </Link>
         </div>
       </div>
-      <DisplayNFT 
-            AllNFT={AllNFT}
-            profileAddress={currentProfile.user}
-      />
+      <DisplayNFT AllNFT={AllNFT} profileAddress={currentProfile.user} />
     </div>
   );
 };

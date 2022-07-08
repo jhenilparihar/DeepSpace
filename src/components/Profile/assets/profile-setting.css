@@ -4,7 +4,7 @@
 .setting-main {
   position: relative;
   color: white;
-  font-family: 'Poppins';
+  font-family: "Poppins";
 }
 .setting-main .form-c h1,
 .setting-main .form-u h1 {
@@ -17,14 +17,14 @@
   font-size: 16px;
   font-weight: 600;
   color: rgb(229, 232, 235);
-  font-family: 'Poppins';
+  font-family: "Poppins";
 }
 .setting-main .form-profile-setting {
   display: block;
   text-align: left;
   position: relative;
   top: 65px;
-  font-family: 'Poppins';
+  font-family: "Poppins";
 }
 
 .setting-main .form-u {
@@ -43,7 +43,6 @@
   border-bottom-right-radius: 0;
 }
 
-
 .setting-main .input-group {
   display: block;
   width: 400px;
@@ -55,11 +54,10 @@
   font-size: 17px;
   color: #a7b4c1;
   margin: 20px 0;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 400;
   padding: 0;
   border: 1px solid rgb(21, 27, 34);
-
 }
 .setting-main textarea {
   background-color: rgb(53, 56, 64);
@@ -72,10 +70,9 @@
   color: rgb(229, 232, 235);
   padding: 10px 0 0 20px;
   font-size: 17px;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 400;
   border: 1px solid rgb(21, 27, 34);
-
 }
 .setting-main textarea:hover {
   background-color: rgba(255, 255, 255, 0.3);
@@ -144,8 +141,7 @@
   margin: 10px 0;
 }
 .banner_setting_img,
-.banner_setting_img img
- {
+.banner_setting_img img {
   border-radius: 10px;
 }
 .banner_setting_img input {
@@ -182,4 +178,3 @@
 /* user-form-end */
 
 /* ##################################### */
-

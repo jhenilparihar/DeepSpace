@@ -1,8 +1,7 @@
 :root {
   scroll-behavior: smooth;
 }
-body{
-  height: 300vh;
+body {
   background-color: rgb(32 34 37);
-  color: #FFF;
+  color: #fff;
 }

@@ -9,22 +9,22 @@ const Home = () => {
         <div class="fading-div">
           <div class="text-div">
             <div class="text-area">
-            <h1>Discover, collect, and sell extraordinary NFTs</h1>
-            <span>
-              OpenSea is the world's first and <br/> largest NFT marketplace
-            </span>
-            <div class="btn-div">
-              <Link to="/marketplace">
-              <button type="submit" id="explore-btn">
-                Explore
-              </button>
-              </Link>
-              <Link to="/mint">
-              <button type="submit" id="create-btn">
-                Create
-              </button>
-              </Link>
-            </div>
+              <h1>Discover, collect, and sell extraordinary NFTs</h1>
+              <span>
+                OpenSea is the world's first and <br /> largest NFT marketplace
+              </span>
+              <div class="btn-div">
+                <Link to="/marketplace">
+                  <button type="submit" id="explore-btn">
+                    Explore
+                  </button>
+                </Link>
+                <Link to="/mint">
+                  <button type="submit" id="create-btn">
+                    Create
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
           <div class="banner-div">

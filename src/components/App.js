@@ -13,11 +13,11 @@ import Loading from "./Loading/Loading";
 import Navbar from "./Navbar/Navbar";
 import Queries from "./Queries/Queries";
 import Profile from "./Profile/ProfilePage";
-import UserProfile from './Profile/Profile'
+import UserProfile from "./Profile/Profile";
 import Settings from "./Profile/profile-setting";
 import NoPage from "./NoPage/NoPage";
 import NFTDetails from "./NFTDetails/NFTDetail";
-import Marketplace_ from "./Explore/Marketplace";
+import Explore from "./Explore/Marketplace";
 
 const ipfsClient = require("ipfs-http-client");
 const ipfs = ipfsClient({
@@ -45,7 +45,7 @@ class App extends Component {
       imageHash: "",
       lastMintTime: null,
       currentProfile: "",
-      allUserProfile: {}
+      allUserProfile: {},
     };
   }
 
@@ -88,9 +88,7 @@ class App extends Component {
       }
     }, 1000);
   };
-  dateTime = async () => {
-    
-  }
+  dateTime = async () => {};
   loadWeb3 = async () => {
     if (window.ethereum) {
       window.web3 = new Web3(window.ethereum);
@@ -132,18 +130,31 @@ class App extends Component {
           .call();
 
         if (!isProfileSet) {
-          var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-          var currentTime = new Date()
-// returns the month (from 0 to 11)
-var month = months[currentTime.getMonth()];
+          var months = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+          ];
+          var currentTime = new Date();
+          // returns the month (from 0 to 11)
+          var month = months[currentTime.getMonth()];
 
-// returns the day of the month (from 1 to 31)
-var day = currentTime.getDate()
+          // returns the day of the month (from 1 to 31)
+          var day = currentTime.getDate();
 
-// returns the year (four digits)
-var year = currentTime.getFullYear()
-const overAllDate=month+" "+day+" "+year
-          console.log("See")
+          // returns the year (four digits)
+          var year = currentTime.getFullYear();
+          const overAllDate = month + " " + day + " " + year;
+          console.log("See");
           await this.uploadProfile(
             "https://ipfs.infura.io/ipfs/QmeAcsFZfRd719RHMivPUitJpXzH54k8d3CXpmvmLZnF7A",
             "https://bafybeih5pgcobf6hpgf2pexmkhfsk55zr4dywrazgybk7u2fp6w4webkxu.ipfs.infura-ipfs.io/",
@@ -169,27 +180,21 @@ const overAllDate=month+" "+day+" "+year
         const cp = await NFTContract.methods
           .allProfiles(this.state.accountAddress)
           .call();
-        
+
         this.setState({ currentProfile: cp });
 
         const ProfileCounter = await NFTContract.methods.UserCounter().call();
-        
-        console.log(ProfileCounter)
 
-        for (var i = 1; i <= ProfileCounter; i++) {
-          const address = await NFTContract.methods.allAddress(i).call();
-          // this.setState({
-          //   allUserProfile: [...this.state.allUserProfile, profile],
-          // });
-          // const address = profile.user
-          const profile = await NFTContract.methods
-          .allProfiles(address)
-          .call();
+        console.log(ProfileCounter);
 
-          this.state.allUserProfile[address] = profile
+        for (var profile_counter = 1; profile_counter <= ProfileCounter; profile_counter++) {
+          const address = await NFTContract.methods.allAddress(profile_counter).call();
+          const profile = await NFTContract.methods.allProfiles(address).call();
+
+          this.state.allUserProfile[address] = profile;
         }
 
-        console.log(this.state.allUserProfile)
+        console.log(this.state.allUserProfile);
 
         totalTokensMinted = totalTokensMinted.toNumber();
         this.setState({ totalTokensMinted });
@@ -200,7 +205,14 @@ const overAllDate=month+" "+day+" "+year
     }
   };
 
-  uploadProfile = async (bannerHash, imageHash, name, description, email,date) => {
+  uploadProfile = async (
+    bannerHash,
+    imageHash,
+    name,
+    description,
+    email,
+    date
+  ) => {
     this.state.NFTContract.methods
       .addUserProfile(
         bannerHash,
@@ -220,12 +232,10 @@ const overAllDate=month+" "+day+" "+year
   };
 
   getProfileDetails = async (address) => {
-    const cp = await this.state.NFTContract.methods
-    .allProfiles(address)
-    .call();
-    
+    const cp = await this.state.NFTContract.methods.allProfiles(address).call();
+
     return cp;
-  }
+  };
 
   connectToMetamask = async () => {
     await window.ethereum.enable();
@@ -253,19 +263,37 @@ const overAllDate=month+" "+day+" "+year
   };
 
   mintMyNFT = async (fileUrl, name, tokenPrice, description) => {
-    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    var currentTime = new Date()
+    var months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    var currentTime = new Date();
     // returns the month (from 0 to 11)
     var month = months[currentTime.getMonth()];
-    
+
     // returns the day of the month (from 1 to 31)
-    var day = currentTime.getDate()
-    
+    var day = currentTime.getDate();
+
     // returns the year (four digits)
-    var year = currentTime.getFullYear()
-    const overAllDate=month+" "+day+", "+year
-  var time = currentTime.getHours() + ":" + currentTime.getMinutes() + ":" + currentTime.getSeconds();
-  var dateTime = overAllDate+' at '+time;
+    var year = currentTime.getFullYear();
+    const overAllDate = month + " " + day + ", " + year;
+    var time =
+      currentTime.getHours() +
+      ":" +
+      currentTime.getMinutes() +
+      ":" +
+      currentTime.getSeconds();
+    var dateTime = overAllDate + " at " + time;
     this.setState({ loading: true });
 
     console.log(fileUrl);
@@ -290,13 +318,13 @@ const overAllDate=month+" "+day+" "+year
         tokenId: `${tokenId}`,
         name: name,
         imageUrl: fileUrl,
-        description: description
+        description: description,
       };
       const cid = await ipfs.add(JSON.stringify(tokenObject));
       let tokenURI = `https://ipfs.infura.io/ipfs/${cid.path}`;
       const price = window.web3.utils.toWei(tokenPrice.toString(), "ether");
       this.state.NFTContract.methods
-        .mintNFT(name, tokenURI, price, fileUrl,dateTime)
+        .mintNFT(name, tokenURI, price, fileUrl, dateTime)
         .send({ from: this.state.accountAddress })
         .on("confirmation", () => {
           localStorage.setItem(this.state.accountAddress, new Date().getTime());
@@ -375,7 +403,7 @@ const overAllDate=month+" "+day+" "+year
                   <Route
                     path="marketplace"
                     element={
-                      <Marketplace_
+                      <Explore
                         accountAddress={this.state.accountAddress}
                         AllNFT={this.state.NFTs}
                         totalTokensMinted={this.state.totalTokensMinted}
@@ -402,16 +430,18 @@ const overAllDate=month+" "+day+" "+year
                     path="profile/"
                     element={
                       <UserProfile
-                       AllNFT={this.state.NFTs}
-                       currentProfile={this.state.currentProfile} />
+                        AllNFT={this.state.NFTs}
+                        currentProfile={this.state.currentProfile}
+                      />
                     }
                   />
                   <Route
                     path="profile/:address"
                     element={
                       <Profile
-                       AllNFT={this.state.NFTs}
-                       allProfiles={this.state.allUserProfile} />
+                        AllNFT={this.state.NFTs}
+                        allProfiles={this.state.allUserProfile}
+                      />
                     }
                   />
                   <Route
