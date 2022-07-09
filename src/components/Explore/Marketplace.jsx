@@ -157,11 +157,11 @@ class Marketplace extends Component {
                   <div className="flex-div">
                     <div className="part1">
                       <div className="stat">Buy Now</div>
-                      <div className="stat">Buy Now</div>
+                      <div className="stat">New</div>
                     </div>
                     <div className="part1">
-                      <div className="stat">Buy Now</div>
-                      <div className="stat">Buy Now</div>
+                      <div className="stat">Has Offer</div>
+                      <div className="stat">On Auction</div>
                     </div>
                   </div>
                 </div>
@@ -208,8 +208,8 @@ class Marketplace extends Component {
                     <div class="caret"></div>
                   </div>
                   <ul class="explore-menu">
-                    <li class="active">Facebook</li>
-                    <li>Recently used</li>
+                    <li class="active">Most Popular</li>
+                    <li>Recently listed</li>
                     <li onClick={this.newestFirst}>Recently created</li>
                     <li>Recently sold</li>
                     <li>Price: Low to High</li>
