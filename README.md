@@ -38,7 +38,7 @@ ganache-cli --port 7545
 ```
 #### Open new terminal window and clone this repository
 ```
-git clone https://github.com/HarshDilipGhosalkar/NFT-MARKETPLACE
+git clone https://github.com/jhenilparihar/DeepSpace.git
 ```
 #### Install dependencies
 ```
