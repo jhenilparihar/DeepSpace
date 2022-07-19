@@ -37,12 +37,13 @@ h6 {
   justify-content: center;
   text-align: center;
   align-items: center;
-  background-color: rgba(32, 34, 37, 0.92);
+  background-color: rgba(32, 34, 37, 0.75);
   background-image: linear-gradient(
     to top,
     rgba(32, 34, 37, 1),
     rgba(32, 34, 37, 0)
   );
+  backdrop-filter: blur(10px);
 }
 .text-div {
   width: 50%;
