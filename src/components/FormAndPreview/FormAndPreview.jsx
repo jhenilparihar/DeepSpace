@@ -39,7 +39,6 @@ class FormAndPreview extends Component {
 
       this.setState({ fileUrl: url });
       this.setState({ imageIsUpload: true });
-      console.log(url);
     } catch (error) {
       console.log("Error uploading file: ", error);
     }

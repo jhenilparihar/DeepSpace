@@ -154,7 +154,6 @@ class App extends Component {
           // returns the year (four digits)
           var year = currentTime.getFullYear();
           const overAllDate = month + " " + day + " " + year;
-          console.log("See");
           await this.uploadProfile(
             "https://ipfs.infura.io/ipfs/QmeAcsFZfRd719RHMivPUitJpXzH54k8d3CXpmvmLZnF7A",
             "https://bafybeih5pgcobf6hpgf2pexmkhfsk55zr4dywrazgybk7u2fp6w4webkxu.ipfs.infura-ipfs.io/",
@@ -185,16 +184,12 @@ class App extends Component {
 
         const ProfileCounter = await NFTContract.methods.UserCounter().call();
 
-        console.log(ProfileCounter);
-
         for (var profile_counter = 1; profile_counter <= ProfileCounter; profile_counter++) {
           const address = await NFTContract.methods.allAddress(profile_counter).call();
           const profile = await NFTContract.methods.allProfiles(address).call();
 
           this.state.allUserProfile[address] = profile;
         }
-
-        console.log(this.state.allUserProfile);
 
         totalTokensMinted = totalTokensMinted.toNumber();
         this.setState({ totalTokensMinted });
@@ -296,7 +291,6 @@ class App extends Component {
     var dateTime = overAllDate + " at " + time;
     this.setState({ loading: true });
 
-    console.log(fileUrl);
     const nameIsUsed = await this.state.NFTContract.methods
       .tokenNameExists(name)
       .call();

@@ -30,7 +30,6 @@ class Settings extends Component {
       const url = `https://ipfs.infura.io/ipfs/${added.path}`;
       this.setState({ imageHash: url });
       this.setState({ imageIsUpload: true });
-      console.log(url);
     } catch (error) {
       console.log("Error uploading file: ", error);
     }
@@ -42,7 +41,6 @@ class Settings extends Component {
       const url = `https://ipfs.infura.io/ipfs/${added.path}`;
       this.setState({ bannerHash: url });
       this.setState({ imageIsUpload: true });
-      console.log(url);
     } catch (error) {
       console.log("Error uploading file: ", error);
     }

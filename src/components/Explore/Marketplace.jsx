@@ -58,7 +58,6 @@ class Marketplace extends Component {
     let min = document.querySelector("#min").value;
     let max = document.querySelector("#max").value;
 
-    // console.log(min,max);
     if (min == null && max != null) {
       this.setState({ maxPrice: max });
     } else if (min != null && max == null) {
@@ -77,7 +76,6 @@ class Marketplace extends Component {
     this.setState({
       NFTToDisplay: a.slice(),
     });
-    console.log("all", a);
   };
 
   expand = () => {
@@ -133,10 +131,6 @@ class Marketplace extends Component {
   };
 
   render() {
-    //   console.log(this.state.NFTToDisplay[0].tokenName)
-    console.log(this.state.minPrice);
-    console.log(this.state.maxPrice);
-
     return (
       <>
         <div class="outer-container">

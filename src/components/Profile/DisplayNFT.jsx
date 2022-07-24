@@ -53,7 +53,6 @@ class DisplayNFT extends Component {
     a.reverse();
     this.setState({ NFTToDisplay: a.slice() });
 
-    console.log(a);
   };
 
   toggleActiveState = () => {
