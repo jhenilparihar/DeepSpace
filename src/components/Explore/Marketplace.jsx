@@ -221,11 +221,11 @@ class Marketplace extends Component {
                       {this.state.NFTToDisplay.map((NFT) => {
                         return (
                           <div
-                            key={NFT.tokenId.toNumber()}
+                            key={parseInt(NFT.tokenId)}
                             class="col-4 col-lg-4 col-md-6 col-sm-1 align-items-center nft_card"
                           >
                             <Link
-                              to={"/assets/details/" + NFT.tokenId.toNumber()}
+                              to={"/assets/details/" + parseInt(NFT.tokenId)}
                             >
                               <div className="details-div">
                                 <div class="inner-div">

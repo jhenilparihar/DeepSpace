@@ -43,7 +43,7 @@ body {
 .details-div .inner-div {
   width: 100%;
   height: 375px;
-  background-color: aqua;
+  background-color: black;
 }
 .buy-nft-image {
   object-fit: fill;

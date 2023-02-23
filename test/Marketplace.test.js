@@ -36,7 +36,7 @@ contract("NFT Marketplace", async (accounts) => {
   describe("application features", async () => {
     it("allows users to mint ERC721 token", async () => {
     NFTCount = await NFT.NFTCounter();
-    assert.equal(NFTCount.toNumber(), 0);
+    assert.equal(parseInt(NFTCount), 0);
 
       let tokenExists;
       tokenExists = await NFT.getTokenExists(1, { from: accounts[0] });
@@ -64,7 +64,7 @@ contract("NFT Marketplace", async (accounts) => {
       );
 
       NFTCount = await NFT.NFTCounter();
-      assert.equal(NFTCount.toNumber(), 1);
+      assert.equal(parseInt(NFTCount), 1);
 
       tokenExists = await NFT.getTokenExists(1, { from: accounts[0] });
       assert.equal(tokenExists, true);
@@ -84,7 +84,7 @@ contract("NFT Marketplace", async (accounts) => {
       nft = await NFT.allNFTs(1, {
         from: accounts[0],
       });
-      assert.equal(nft.tokenId.toNumber(), 1);
+      assert.equal(parseInt(nft.tokenId), 1);
       assert.equal(nft.tokenName, "myNFT");
       assert.equal(
         nft.tokenURI,
@@ -97,7 +97,7 @@ contract("NFT Marketplace", async (accounts) => {
         0x0000000000000000000000000000000000000000
       );
       assert.equal(web3.utils.fromWei(nft.price, "ether"), 1);
-      assert.equal(nft.numberOfTransfers.toNumber(), 0);
+      assert.equal(parseInt(nft.numberOfTransfers), 0);
       assert.equal(nft.forSale, false);
 
       await NFT.mintNFT(
@@ -155,14 +155,14 @@ contract("NFT Marketplace", async (accounts) => {
 
     it("returns total number of tokens minted so far", async () => {
       const totalNumberOfTokensMinted = await NFT.getNumberOfTokensMinted();
-      assert.equal(totalNumberOfTokensMinted.toNumber(), 2);
+      assert.equal(parseInt(totalNumberOfTokensMinted), 2);
     });
 
     it("returns total number of tokens owned by an address", async () => {
       const totalNumberOfTokensOwnedByAnAddress = await NFT.getTotalNumberOfTokensOwnedByAnAddress(
         accounts[0]
       );
-      assert.equal(totalNumberOfTokensOwnedByAnAddress.toNumber(), 1);
+      assert.equal(parseInt(totalNumberOfTokensOwnedByAnAddress), 1);
     });
 
     // it("allows users to buy token for specified ethers", async () => {

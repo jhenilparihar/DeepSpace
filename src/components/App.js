@@ -4,7 +4,7 @@ import "./bootstrap/css/bootstrap.css";
 import "./App.css";
 import Web3 from "web3";
 import Marketplace from "../abis/Marketplace.json";
-
+import axios from "axios";
 import FormAndPreview from "../components/FormAndPreview/FormAndPreview";
 import Home from "./Home/Home";
 import ContractNotDeployed from "./ContractNotDeployed/ContractNotDeployed";
@@ -19,12 +19,12 @@ import NoPage from "./NoPage/NoPage";
 import NFTDetails from "./NFTDetails/NFTDetail";
 import Explore from "./Explore/Marketplace";
 
-const ipfsClient = require("ipfs-http-client");
-const ipfs = ipfsClient({
-  host: "ipfs.infura.io",
-  port: 5001,
-  protocol: "https",
-});
+// const ipfsClient = require("ipfs-http-client");
+// const ipfs = ipfsClient({
+//   host: "ipfs.infura.io",
+//   port: 5001,
+//   protocol: "https",
+// });
 
 class App extends Component {
   constructor(props) {
@@ -118,7 +118,7 @@ class App extends Component {
       const networkData = Marketplace.networks[networkId];
       if (networkData) {
         this.setState({ loading: true });
-        const NFTContract = web3.eth.Contract(
+        const NFTContract = new web3.eth.Contract(
           Marketplace.abi,
           networkData.address
         );
@@ -191,7 +191,7 @@ class App extends Component {
           this.state.allUserProfile[address] = profile;
         }
 
-        totalTokensMinted = totalTokensMinted.toNumber();
+        totalTokensMinted = parseInt(totalTokensMinted);
         this.setState({ totalTokensMinted });
         this.setState({ loading: false });
       } else {
@@ -245,7 +245,7 @@ class App extends Component {
         const metaData = await result.json();
         this.setState({
           NFTs: this.state.NFTs.map((nft) =>
-            nft.tokenId.toNumber() === Number(metaData.tokenId)
+            parseInt(nft.tokenId) === Number(metaData.tokenId)
               ? {
                   ...nft,
                   metaData,
@@ -256,6 +256,36 @@ class App extends Component {
       });
     }
   };
+
+// new ipfs//
+
+uploadFileToIPFS = async (fileBlob) => {
+  const apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDE5NzkzNUM4NUQxODZmNEJCN2NlN2U1RjhGYjY4NWQ4NUJlY0ZkREEiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY3NjE5OTY3NzU0MywibmFtZSI6ImhhcnNoQDIzMDQifQ.gEWeVVohValCGdXRyGorzcYkc0umfpjcJOsPJxDMkQU";
+
+  var config = {
+    method: "post",
+    url: "https://api.nft.storage/upload",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "image/jpeg",
+    },
+    data: fileBlob,
+  };
+
+  const fileUploadResponse = await axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+      return response.data;
+    })
+    .catch(function (error) {
+      console.log(error);
+      return error;
+    });
+
+  return fileUploadResponse;
+};
+
+//end//
 
   mintMyNFT = async (fileUrl, name, tokenPrice, description) => {
     var months = [
@@ -304,7 +334,7 @@ class App extends Component {
       previousTokenId = await this.state.NFTContract.methods
         .NFTCounter()
         .call();
-      previousTokenId = previousTokenId.toNumber();
+      previousTokenId = parseInt(previousTokenId);
       const tokenId = previousTokenId + 1;
       const tokenObject = {
         tokenName: "DeepSpace",
@@ -314,8 +344,11 @@ class App extends Component {
         imageUrl: fileUrl,
         description: description,
       };
-      const cid = await ipfs.add(JSON.stringify(tokenObject));
-      let tokenURI = `https://ipfs.infura.io/ipfs/${cid.path}`;
+      const metadataUploadResponse = await this.uploadFileToIPFS(
+        JSON.stringify(tokenObject)
+      );
+      // const cid = await ipfs.add(JSON.stringify(tokenObject));
+      let tokenURI = `https://alchemy.mypinata.cloud/ipfs/${metadataUploadResponse.value.cid}`;
       const price = window.web3.utils.toWei(tokenPrice.toString(), "ether");
       this.state.NFTContract.methods
         .mintNFT(name, tokenURI, price, fileUrl, dateTime)

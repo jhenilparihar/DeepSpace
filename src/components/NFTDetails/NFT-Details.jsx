@@ -70,7 +70,7 @@ class NFTDetails extends Component {
                 </div>
                 <h1 className="nft_name">
                   {this.props.NFT.tokenName} #
-                  {this.props.NFT.tokenId.toNumber()}
+                  {parseInt(this.props.NFT.tokenId)}
                 </h1>
                 <div className="row owner_name">
                   <span>
@@ -106,7 +106,7 @@ class NFTDetails extends Component {
                             value={this.props.NFT.price}
                             onClick={(e) =>
                               this.props.buyNFT(
-                                this.props.NFT.tokenId.toNumber(),
+                                parseInt(this.props.NFT.tokenId),
                                 e.target.value
                               )
                             }
@@ -136,7 +136,7 @@ class NFTDetails extends Component {
                             class="remove-btn"
                             onClick={() =>
                               this.props.toggleForSale(
-                                this.props.NFT.tokenId.toNumber()
+                                parseInt(this.props.NFT.tokenId)
                               )
                             }
                           >
@@ -147,7 +147,7 @@ class NFTDetails extends Component {
                             class="keep-btn"
                             onClick={() =>
                               this.props.toggleForSale(
-                                this.props.NFT.tokenId.toNumber()
+                                parseInt(this.props.NFT.tokenId)
                               )
                             }
                           >
@@ -168,7 +168,7 @@ class NFTDetails extends Component {
                         onSubmit={(e) => {
                           e.preventDefault();
                           this.callChangeTokenPriceFromApp(
-                            this.props.NFT.tokenId.toNumber(),
+                            parseInt(this.props.NFT.tokenId),
                             this.state.newNFTPrice
                           );
                         }}
@@ -205,7 +205,7 @@ class NFTDetails extends Component {
                     <div className="row div_content_text">
                       <div className="col-6">Number Of Transfers</div>
                       <div className="col-3">
-                        {this.props.NFT.numberOfTransfers.toNumber()}
+                        {parseInt(this.props.NFT.numberOfTransfers)}
                       </div>
                     </div>
                     <div className="row div_content_text">
