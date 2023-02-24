@@ -6,7 +6,7 @@ import Web3 from "web3";
 import Marketplace from "../abis/Marketplace.json";
 import axios from "axios";
 import FormAndPreview from "../components/FormAndPreview/FormAndPreview";
-import Home from "./Home/Home";
+import Home from "../components/landingpage/Home";
 import ContractNotDeployed from "./ContractNotDeployed/ContractNotDeployed";
 import ConnectToMetamask from "./ConnectMetamask/ConnectToMetamask";
 import Loading from "./Loading/Loading";
@@ -404,6 +404,7 @@ uploadFileToIPFS = async (fileBlob) => {
   };
 
   render() {
+    console.log(this.state.allUserProfile)
     return (
       <>
         {!this.state.metamaskConnected ? (

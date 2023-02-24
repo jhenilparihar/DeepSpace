@@ -52,6 +52,7 @@ class FormAndPreview extends Component {
 
     return fileUploadResponse;
   };
+  
   onUpload = async (e) => {
     const image = document.querySelector(".img-uploaded");
     const fileInput = document.querySelector(".img-fileInput");
