@@ -18,6 +18,7 @@ import Settings from "./Profile/profile-setting";
 import NoPage from "./NoPage/NoPage";
 import NFTDetails from "./NFTDetails/NFTDetail";
 import Explore from "./Explore/Marketplace";
+import CreateNFT from "./createnft/CreateNFT";
 
 // const ipfsClient = require("ipfs-http-client");
 // const ipfs = ipfsClient({
@@ -444,13 +445,13 @@ uploadFileToIPFS = async (fileBlob) => {
                     element={<Queries NFTsContract={this.state.NFTContract} />}
                   />
                   <Route
-                    path="mint"
+                    path="create"
                     element={
-                      <FormAndPreview
+                      <CreateNFT
                         mintMyNFT={this.mintMyNFT}
                         nameIsUsed={this.state.nameIsUsed}
                         imageIsUsed={this.state.imageIsUsed}
-                        setMintBtnTimer={this.setMintBtnTimer}
+                        uploadFileToIPFS={this.uploadFileToIPFS}
                       />
                     }
                   />
