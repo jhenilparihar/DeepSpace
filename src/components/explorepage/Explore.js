@@ -17,32 +17,37 @@ const recommendations = [
 
 function Explore(props) {
   const [currentTokenId, setCurrentTokenId] = useState("");
-  const [NFT,setNFT]=useState({})
- 
+  const [NFT, setNFT] = useState({});
 
   const NFTClickHandler = (tokenId) => {
+    console.log(tokenId)
     setCurrentTokenId(tokenId);
   };
 
   const closeModalHandler = () => {
     setCurrentTokenId("");
-  }
+  };
 
   const buyNFTHandler = () => {
-    props.buyNFT(NFT.tokenId,NFT.price)
+    props.buyNFT(NFT.tokenId, NFT.price);
+  };
+  useEffect(() => {
+    console.log("hio", currentTokenId)
+    if (currentTokenId) {
+      console.log(props.allNFT);
+      setNFT(
+        props.AllNFT.filter((n) => {
+          return n.tokenId == currentTokenId;
+        })[0]
+       
+      );
+    }
+  }, [currentTokenId]);
+  useEffect(() => {
+    console.log(NFT);
+  }, [NFT]);
 
-  }
-  useEffect(()=>{
-    if(currentTokenId)
-    {
-    setNFT(props.AllNFT.filter((n)=>n.tokenId==currentTokenId)[0])
-    console.log(NFT)
-  }
-    
-  },[currentTokenId])
-  useEffect(()=>{
-    console.log(NFT)
-  },[NFT])
+
 
   return (
     <>
@@ -51,14 +56,14 @@ function Explore(props) {
         <div className="px-16">
           <Carousel
             items={props.AllNFT}
-            allUserProfile={props.allProfile}
+            allUserProfile={props.allUserProfile}
             className=""
             onCardClick={NFTClickHandler}
           />
         </div>
         <TrendingNow items={recommendations} />
       </div>
-      {currentTokenId && (
+      {Object.keys(NFT).length > 0 && (
         <GenericModal
           className="w-[60%] h-[30%%]"
           closeModal={closeModalHandler}
@@ -67,8 +72,7 @@ function Explore(props) {
           posHandler={buyNFTHandler}
           negHandler={closeModalHandler}
         >
-          <Nftdet {...NFT} buy={true}></Nftdet>
-         
+          {<Nftdet {...NFT} allUserProfile={props.allUserProfile} buy={true}></Nftdet> }
         </GenericModal>
       )}
     </>

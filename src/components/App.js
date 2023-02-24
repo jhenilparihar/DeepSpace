@@ -444,7 +444,8 @@ class App extends Component {
                         accountAddress={this.state.accountAddress}
                         AllNFT={this.state.NFTs}
                         totalTokensMinted={this.state.totalTokensMinted}
-                        allProfile={this.state.allUserProfile}
+                        allUserProfile={this.state.allUserProfile}
+                        buyNFT={this.buyNFT}
                       />
                     }
                   />
