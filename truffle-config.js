@@ -16,7 +16,7 @@ module.exports = {
       version: "pragma",
       optimizer: {
         enabled: true,
-        runs: 200,
+        runs:200,
       },
     },
   },
