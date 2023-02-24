@@ -438,7 +438,7 @@ class App extends Component {
                 >
                   <Route index element={<Home />} />
                   <Route
-                    path="marketplace"
+                    path="explore"
                     element={
                       <Explore
                         accountAddress={this.state.accountAddress}

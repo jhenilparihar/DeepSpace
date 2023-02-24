@@ -1,14 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import { useState, useRef, useContext } from "react";
+import { useState, useRef, useEffect } from "react";
 import React from "react";
 
 function Carousel(props) {
   const [itemSet, setItemSet] = useState(0);
+  const [translateWidth, setTranslateWidth] = useState(0);
 
   const carouselRef = useRef();
-
-  let translateWidth = itemSet * (carouselRef.current.clientWidth - 225);
 
   const getPrevitemsHandler = () => {
     setItemSet((prevState) => {
@@ -33,7 +32,6 @@ function Carousel(props) {
     if (item.tokenId) {
       userImage = props.allUserProfile[item.currentOwner].imageHash;
     }
-
     return (
       <div
         key={index}
@@ -65,6 +63,12 @@ function Carousel(props) {
       </div>
     );
   });
+
+  
+  useEffect(() => {
+    setTranslateWidth(itemSet * (carouselRef.current.clientWidth - 225));
+ }, [carouselRef.current])
+
   return (
     <div
       className={`flex items-center space-x-4 text-white text-[50px] relative overflow-hidden ${props.className}`}
