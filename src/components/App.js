@@ -18,7 +18,7 @@ import UserProfile from "./Profile/UserProfile";
 import Settings from "./Profile/profile-setting";
 import NoPage from "./NoPage/NoPage";
 import NFTDetails from "./NFTDetails/NFTDetail";
-import Explore from "./Explore/Marketplace";
+import Explore from "./explorepage/Explore";
 import CreateNFT from "./createnft/CreateNFT";
 
 // const ipfsClient = require("ipfs-http-client");

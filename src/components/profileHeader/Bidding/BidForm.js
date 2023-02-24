@@ -1,4 +1,4 @@
-import TimePickers from "@/components/common/Timepicker";
+import TimePickers from "../../common/Timepicker";
 import moment from "moment";
 import { useState, useNavigate } from "react";
 const BidForm = (props) => {
