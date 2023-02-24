@@ -13,7 +13,8 @@ import Loading from "./Loading/Loading";
 import Navbar from "./Navbar/Navbar";
 import Queries from "./Queries/Queries";
 import Profile from "./Profile/ProfilePage";
-import UserProfile from "./Profile/Profile";
+// import UserProfile from "./Profile/Profile";
+import UserProfile from "./Profile/UserProfile";
 import Settings from "./Profile/profile-setting";
 import NoPage from "./NoPage/NoPage";
 import NFTDetails from "./NFTDetails/NFTDetail";
@@ -185,8 +186,14 @@ class App extends Component {
 
         const ProfileCounter = await NFTContract.methods.UserCounter().call();
 
-        for (var profile_counter = 1; profile_counter <= ProfileCounter; profile_counter++) {
-          const address = await NFTContract.methods.allAddress(profile_counter).call();
+        for (
+          var profile_counter = 1;
+          profile_counter <= ProfileCounter;
+          profile_counter++
+        ) {
+          const address = await NFTContract.methods
+            .allAddress(profile_counter)
+            .call();
           const profile = await NFTContract.methods.allProfiles(address).call();
 
           this.state.allUserProfile[address] = profile;
@@ -258,35 +265,36 @@ class App extends Component {
     }
   };
 
-// new ipfs//
+  // new ipfs//
 
-uploadFileToIPFS = async (fileBlob) => {
-  const apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDE5NzkzNUM4NUQxODZmNEJCN2NlN2U1RjhGYjY4NWQ4NUJlY0ZkREEiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY3NjE5OTY3NzU0MywibmFtZSI6ImhhcnNoQDIzMDQifQ.gEWeVVohValCGdXRyGorzcYkc0umfpjcJOsPJxDMkQU";
+  uploadFileToIPFS = async (fileBlob) => {
+    const apiKey =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDE5NzkzNUM4NUQxODZmNEJCN2NlN2U1RjhGYjY4NWQ4NUJlY0ZkREEiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY3NjE5OTY3NzU0MywibmFtZSI6ImhhcnNoQDIzMDQifQ.gEWeVVohValCGdXRyGorzcYkc0umfpjcJOsPJxDMkQU";
 
-  var config = {
-    method: "post",
-    url: "https://api.nft.storage/upload",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "image/jpeg",
-    },
-    data: fileBlob,
+    var config = {
+      method: "post",
+      url: "https://api.nft.storage/upload",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "image/jpeg",
+      },
+      data: fileBlob,
+    };
+
+    const fileUploadResponse = await axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        return response.data;
+      })
+      .catch(function (error) {
+        console.log(error);
+        return error;
+      });
+
+    return fileUploadResponse;
   };
 
-  const fileUploadResponse = await axios(config)
-    .then(function (response) {
-      console.log(JSON.stringify(response.data));
-      return response.data;
-    })
-    .catch(function (error) {
-      console.log(error);
-      return error;
-    });
-
-  return fileUploadResponse;
-};
-
-//end//
+  //end//
 
   mintMyNFT = async (fileUrl, name, tokenPrice, description) => {
     var months = [
@@ -405,7 +413,7 @@ uploadFileToIPFS = async (fileBlob) => {
   };
 
   render() {
-    console.log(this.state.allUserProfile)
+    console.log(this.state.allUserProfile);
     return (
       <>
         {!this.state.metamaskConnected ? (
@@ -456,11 +464,13 @@ uploadFileToIPFS = async (fileBlob) => {
                     }
                   />
                   <Route
-                    path="profile/"
+                    path="profile"
                     element={
                       <UserProfile
-                        AllNFT={this.state.NFTs}
-                        currentProfile={this.state.currentProfile}
+                        // AllNFT={this.state.NFTs}
+                        // currentProfile={this.state.currentProfile}
+                        allUserProfile={this.state.allUserProfile}
+                        accountAddress={this.state.accountAddress}
                       />
                     }
                   />

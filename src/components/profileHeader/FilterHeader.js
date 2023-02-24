@@ -1,7 +1,7 @@
-import { useRouter } from "next/router";
+import { useNavigate } from "react-router-dom";
 
 const Filter = () => {
-    const router=useRouter()
+  const navigate = useNavigate();
   return (
     <div className="mx-[5%] flex items-center justify-between">
       <button className="flex items-baseline border-[2px] border-tertiarygrey-150 py-[6px] px-5 rounded-full">
@@ -17,7 +17,7 @@ const Filter = () => {
         <p className="mx-3 ">Filter</p>
       </button>
       <div className=" flex justify-between w-[30%] font-medium font-display">
-        <button className=" border-2 border-red-600 rounded-full px-7 py-1" onClick={()=>router.push('/activity/1')}>
+        <button className=" border-2 border-red-600 rounded-full px-7 py-1" onClick={()=>navigate('/activity/1')}>
             Activity
         </button>
         <button className="bg-gradient-to-r from-red-200 to-red-600 font-semibold px-6 py-1 rounded-full">

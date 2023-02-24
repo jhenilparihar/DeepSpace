@@ -16,7 +16,7 @@ const toolbarContainer = [
   [{ list: "ordered" }, { list: "bullet" }],
 ];
 
-const ReactQuill = (import("react-quill"), { ssr: false });
+// const ReactQuill = (import("react-quill"), { ssr: false });
 
 function CreateNFT(props) {
   const [imageInput, setImageInput] = useState("");
@@ -160,7 +160,7 @@ function CreateNFT(props) {
                   >
                     Item Description*
                   </label>
-                  <ReactQuill
+                  {/* <ReactQuill
                     id="description_input"
                     className="h-64 mb-12 focus:border-tertiaryred-50"
                     // placeholder="Mention the roles & responsibilities here..."
@@ -182,8 +182,20 @@ function CreateNFT(props) {
                       toolbar: {
                         container: toolbarContainer,
                       },
+                    }} */}
+                  {/* /> */}
+                  <textarea onChange={(event) => {
+                      setDescriptionInput(event.target.value);
                     }}
-                  />
+                    onFocus={() => {
+                      setIsDescriptionInputSelected(true);
+                    }}
+                    onBlur={() => {
+                      setIsDescriptionInputSelected(false);
+                    }}
+                    value={descriptionInput}
+                    className="mb-6 focus:outline-none focus:border-tertiaryred-50 rounded-lg bg-inherit border-tertiarygrey-350 border-[1px]" />
+
                 </div>
               </div>
             </div>
